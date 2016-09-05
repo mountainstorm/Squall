@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E0A10FC1D7CA69700BCCE89 /* lldb.squall.plugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E0A10FB1D7CA69700BCCE89 /* lldb.squall.plugin */; };
+		1E3B4F7A1D763423003E9F2A /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F6D1D763423003E9F2A /* close.png */; };
+		1E3B4F7B1D763423003E9F2A /* hash-above.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F6E1D763423003E9F2A /* hash-above.png */; };
+		1E3B4F7C1D763423003E9F2A /* hash-below.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F6F1D763423003E9F2A /* hash-below.png */; };
+		1E3B4F7D1D763423003E9F2A /* hash-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F701D763423003E9F2A /* hash-left.png */; };
+		1E3B4F7E1D763423003E9F2A /* hash-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F711D763423003E9F2A /* hash-right.png */; };
+		1E3B4F7F1D763423003E9F2A /* hash.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F721D763423003E9F2A /* hash.png */; };
+		1E3B4F801D763423003E9F2A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F731D763423003E9F2A /* Info.plist */; };
+		1E3B4F811D763423003E9F2A /* MtConfigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F741D763423003E9F2A /* MtConfigView.xib */; };
+		1E3B4F821D763423003E9F2A /* MtConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B4F761D763423003E9F2A /* MtConfigViewController.m */; };
+		1E3B4F831D763423003E9F2A /* MtToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B4F791D763423003E9F2A /* MtToolbarView.m */; };
+		1E3B4F921D78C593003E9F2A /* MtConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B4F911D78C593003E9F2A /* MtConfigView.m */; };
+		1E8CE47715DC5D3B0027B6FC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8CE47615DC5D3B0027B6FC /* Cocoa.framework */; };
+		1E8CE48115DC5D3B0027B6FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E8CE47F15DC5D3B0027B6FC /* InfoPlist.strings */; };
+		1E8CE48315DC5D3B0027B6FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8CE48215DC5D3B0027B6FC /* main.m */; };
+		1E8CE48715DC5D3B0027B6FC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1E8CE48515DC5D3B0027B6FC /* Credits.rtf */; };
+		1E8CE48A15DC5D3B0027B6FC /* MtAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8CE48915DC5D3B0027B6FC /* MtAppDelegate.m */; };
+		1E8CE48D15DC5D3B0027B6FC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8CE48B15DC5D3B0027B6FC /* MainMenu.xib */; };
+		1E924FEC1D79ECC200DA4098 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E924FEB1D79ECC200DA4098 /* Python.framework */; };
+		1E924FEE1D79F7FB00DA4098 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E924FED1D79F7FB00DA4098 /* config.json */; };
+		1ECF47F415DFB533009FC1B8 /* NSView+HierarchicalDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF47F315DFB533009FC1B8 /* NSView+HierarchicalDescription.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1ECF483815E427EF009FC1B8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1E0A10FC1D7CA69700BCCE89 /* lldb.squall.plugin in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1E0A10F51D7CA65D00BCCE89 /* lldb.squall.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = lldb.squall.py; path = lldb.squall/lldb.squall.py; sourceTree = "<group>"; };
+		1E0A10F61D7CA65D00BCCE89 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = lldb.squall/setup.py; sourceTree = "<group>"; };
+		1E0A10F71D7CA65D00BCCE89 /* command.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = command.xib; path = lldb.squall/command.xib; sourceTree = "<group>"; };
+		1E0A10FB1D7CA69700BCCE89 /* lldb.squall.plugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = lldb.squall.plugin; path = lldb.squall/dist/lldb.squall.plugin; sourceTree = "<group>"; };
+		1E0A10FD1D7CC3F500BCCE89 /* console.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = console.xib; path = lldb.squall/console.xib; sourceTree = "<group>"; };
+		1E3B4F6D1D763423003E9F2A /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = MtConfigView/close.png; sourceTree = "<group>"; };
+		1E3B4F6E1D763423003E9F2A /* hash-above.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hash-above.png"; path = "MtConfigView/hash-above.png"; sourceTree = "<group>"; };
+		1E3B4F6F1D763423003E9F2A /* hash-below.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hash-below.png"; path = "MtConfigView/hash-below.png"; sourceTree = "<group>"; };
+		1E3B4F701D763423003E9F2A /* hash-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hash-left.png"; path = "MtConfigView/hash-left.png"; sourceTree = "<group>"; };
+		1E3B4F711D763423003E9F2A /* hash-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hash-right.png"; path = "MtConfigView/hash-right.png"; sourceTree = "<group>"; };
+		1E3B4F721D763423003E9F2A /* hash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hash.png; path = MtConfigView/hash.png; sourceTree = "<group>"; };
+		1E3B4F731D763423003E9F2A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MtConfigView/Info.plist; sourceTree = "<group>"; };
+		1E3B4F741D763423003E9F2A /* MtConfigView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MtConfigView.xib; path = MtConfigView/MtConfigView.xib; sourceTree = "<group>"; };
+		1E3B4F751D763423003E9F2A /* MtConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MtConfigViewController.h; path = MtConfigView/MtConfigViewController.h; sourceTree = "<group>"; };
+		1E3B4F761D763423003E9F2A /* MtConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MtConfigViewController.m; path = MtConfigView/MtConfigViewController.m; sourceTree = "<group>"; };
+		1E3B4F771D763423003E9F2A /* MtConfigViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MtConfigViewDelegate.h; path = MtConfigView/MtConfigViewDelegate.h; sourceTree = "<group>"; };
+		1E3B4F781D763423003E9F2A /* MtToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MtToolbarView.h; path = MtConfigView/MtToolbarView.h; sourceTree = "<group>"; };
+		1E3B4F791D763423003E9F2A /* MtToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MtToolbarView.m; path = MtConfigView/MtToolbarView.m; sourceTree = "<group>"; };
+		1E3B4F901D78C593003E9F2A /* MtConfigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MtConfigView.h; path = MtConfigView/MtConfigView.h; sourceTree = "<group>"; };
+		1E3B4F911D78C593003E9F2A /* MtConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MtConfigView.m; path = MtConfigView/MtConfigView.m; sourceTree = "<group>"; };
+		1E8CE47215DC5D3B0027B6FC /* squall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = squall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E8CE47615DC5D3B0027B6FC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1E8CE47915DC5D3B0027B6FC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1E8CE47A15DC5D3B0027B6FC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1E8CE47B15DC5D3B0027B6FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1E8CE47E15DC5D3B0027B6FC /* squall-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "squall-Info.plist"; sourceTree = "<group>"; };
+		1E8CE48015DC5D3B0027B6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1E8CE48215DC5D3B0027B6FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1E8CE48415DC5D3B0027B6FC /* squall-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "squall-Prefix.pch"; sourceTree = "<group>"; };
+		1E8CE48615DC5D3B0027B6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		1E8CE48815DC5D3B0027B6FC /* MtAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtAppDelegate.h; sourceTree = "<group>"; };
+		1E8CE48915DC5D3B0027B6FC /* MtAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtAppDelegate.m; sourceTree = "<group>"; };
+		1E8CE48C15DC5D3B0027B6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1E924FEB1D79ECC200DA4098 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = ../../../../../System/Library/Frameworks/Python.framework; sourceTree = "<group>"; };
+		1E924FED1D79F7FB00DA4098 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		1ECF47F215DFB533009FC1B8 /* NSView+HierarchicalDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+HierarchicalDescription.h"; sourceTree = "<group>"; };
+		1ECF47F315DFB533009FC1B8 /* NSView+HierarchicalDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+HierarchicalDescription.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1E8CE46F15DC5D3B0027B6FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E924FEC1D79ECC200DA4098 /* Python.framework in Frameworks */,
+				1E8CE47715DC5D3B0027B6FC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E0A10F41D7CA64F00BCCE89 /* lldb.squall */ = {
+			isa = PBXGroup;
+			children = (
+				1E0A10FB1D7CA69700BCCE89 /* lldb.squall.plugin */,
+				1E0A10F51D7CA65D00BCCE89 /* lldb.squall.py */,
+				1E0A10F61D7CA65D00BCCE89 /* setup.py */,
+				1E0A10F71D7CA65D00BCCE89 /* command.xib */,
+				1E0A10FD1D7CC3F500BCCE89 /* console.xib */,
+			);
+			name = lldb.squall;
+			sourceTree = "<group>";
+		};
+		1E3B4F6C1D76340A003E9F2A /* MtConfigView */ = {
+			isa = PBXGroup;
+			children = (
+				1E3B4F6D1D763423003E9F2A /* close.png */,
+				1E3B4F6E1D763423003E9F2A /* hash-above.png */,
+				1E3B4F6F1D763423003E9F2A /* hash-below.png */,
+				1E3B4F701D763423003E9F2A /* hash-left.png */,
+				1E3B4F711D763423003E9F2A /* hash-right.png */,
+				1E3B4F721D763423003E9F2A /* hash.png */,
+				1E3B4F731D763423003E9F2A /* Info.plist */,
+				1E3B4F741D763423003E9F2A /* MtConfigView.xib */,
+				1E3B4F901D78C593003E9F2A /* MtConfigView.h */,
+				1E3B4F911D78C593003E9F2A /* MtConfigView.m */,
+				1E3B4F751D763423003E9F2A /* MtConfigViewController.h */,
+				1E3B4F761D763423003E9F2A /* MtConfigViewController.m */,
+				1E3B4F771D763423003E9F2A /* MtConfigViewDelegate.h */,
+				1E3B4F781D763423003E9F2A /* MtToolbarView.h */,
+				1E3B4F791D763423003E9F2A /* MtToolbarView.m */,
+			);
+			name = MtConfigView;
+			sourceTree = "<group>";
+		};
+		1E8CE46715DC5D3B0027B6FC = {
+			isa = PBXGroup;
+			children = (
+				1E8CE47C15DC5D3B0027B6FC /* squall */,
+				1E8CE47515DC5D3B0027B6FC /* Frameworks */,
+				1E8CE47315DC5D3B0027B6FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1E8CE47315DC5D3B0027B6FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E8CE47215DC5D3B0027B6FC /* squall.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1E8CE47515DC5D3B0027B6FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E924FEB1D79ECC200DA4098 /* Python.framework */,
+				1E8CE47615DC5D3B0027B6FC /* Cocoa.framework */,
+				1E8CE47815DC5D3B0027B6FC /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E8CE47815DC5D3B0027B6FC /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E8CE47915DC5D3B0027B6FC /* AppKit.framework */,
+				1E8CE47A15DC5D3B0027B6FC /* CoreData.framework */,
+				1E8CE47B15DC5D3B0027B6FC /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1E8CE47C15DC5D3B0027B6FC /* squall */ = {
+			isa = PBXGroup;
+			children = (
+				1E3B4F6C1D76340A003E9F2A /* MtConfigView */,
+				1ECF480115E425B8009FC1B8 /* PlugIns */,
+				1E8CE48815DC5D3B0027B6FC /* MtAppDelegate.h */,
+				1E8CE48915DC5D3B0027B6FC /* MtAppDelegate.m */,
+				1E8CE48B15DC5D3B0027B6FC /* MainMenu.xib */,
+				1E8CE47D15DC5D3B0027B6FC /* Supporting Files */,
+				1ECF47F215DFB533009FC1B8 /* NSView+HierarchicalDescription.h */,
+				1ECF47F315DFB533009FC1B8 /* NSView+HierarchicalDescription.m */,
+			);
+			path = squall;
+			sourceTree = "<group>";
+		};
+		1E8CE47D15DC5D3B0027B6FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E8CE47E15DC5D3B0027B6FC /* squall-Info.plist */,
+				1E8CE47F15DC5D3B0027B6FC /* InfoPlist.strings */,
+				1E8CE48215DC5D3B0027B6FC /* main.m */,
+				1E8CE48415DC5D3B0027B6FC /* squall-Prefix.pch */,
+				1E8CE48515DC5D3B0027B6FC /* Credits.rtf */,
+				1E924FED1D79F7FB00DA4098 /* config.json */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1ECF480115E425B8009FC1B8 /* PlugIns */ = {
+			isa = PBXGroup;
+			children = (
+				1E0A10F41D7CA64F00BCCE89 /* lldb.squall */,
+			);
+			name = PlugIns;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1E8CE47115DC5D3B0027B6FC /* squall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E8CE49015DC5D3B0027B6FC /* Build configuration list for PBXNativeTarget "squall" */;
+			buildPhases = (
+				1E8CE46E15DC5D3B0027B6FC /* Sources */,
+				1E6D10441D7AE38300F51793 /* ShellScript */,
+				1E8CE46F15DC5D3B0027B6FC /* Frameworks */,
+				1E8CE47015DC5D3B0027B6FC /* Resources */,
+				1ECF483815E427EF009FC1B8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = squall;
+			productName = squall;
+			productReference = 1E8CE47215DC5D3B0027B6FC /* squall.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1E8CE46915DC5D3B0027B6FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Mt;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = mountainstorm;
+			};
+			buildConfigurationList = 1E8CE46C15DC5D3B0027B6FC /* Build configuration list for PBXProject "squall" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1E8CE46715DC5D3B0027B6FC;
+			productRefGroup = 1E8CE47315DC5D3B0027B6FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1E8CE47115DC5D3B0027B6FC /* squall */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1E8CE47015DC5D3B0027B6FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E8CE48115DC5D3B0027B6FC /* InfoPlist.strings in Resources */,
+				1E3B4F7F1D763423003E9F2A /* hash.png in Resources */,
+				1E924FEE1D79F7FB00DA4098 /* config.json in Resources */,
+				1E8CE48715DC5D3B0027B6FC /* Credits.rtf in Resources */,
+				1E3B4F811D763423003E9F2A /* MtConfigView.xib in Resources */,
+				1E3B4F7A1D763423003E9F2A /* close.png in Resources */,
+				1E3B4F7D1D763423003E9F2A /* hash-left.png in Resources */,
+				1E3B4F7C1D763423003E9F2A /* hash-below.png in Resources */,
+				1E8CE48D15DC5D3B0027B6FC /* MainMenu.xib in Resources */,
+				1E3B4F801D763423003E9F2A /* Info.plist in Resources */,
+				1E3B4F7E1D763423003E9F2A /* hash-right.png in Resources */,
+				1E3B4F7B1D763423003E9F2A /* hash-above.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E6D10441D7AE38300F51793 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/squall/lldb.squall/",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${SRCROOT}/squall/lldb.squall\"\nsource venv/bin/activate\npython setup.py py2app -A";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E8CE46E15DC5D3B0027B6FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E8CE48315DC5D3B0027B6FC /* main.m in Sources */,
+				1E3B4F831D763423003E9F2A /* MtToolbarView.m in Sources */,
+				1E3B4F821D763423003E9F2A /* MtConfigViewController.m in Sources */,
+				1E8CE48A15DC5D3B0027B6FC /* MtAppDelegate.m in Sources */,
+				1ECF47F415DFB533009FC1B8 /* NSView+HierarchicalDescription.m in Sources */,
+				1E3B4F921D78C593003E9F2A /* MtConfigView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1E8CE47F15DC5D3B0027B6FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E8CE48015DC5D3B0027B6FC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1E8CE48515DC5D3B0027B6FC /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E8CE48615DC5D3B0027B6FC /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		1E8CE48B15DC5D3B0027B6FC /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E8CE48C15DC5D3B0027B6FC /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1E8CE48E15DC5D3B0027B6FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1E8CE48F15DC5D3B0027B6FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1E8CE49115DC5D3B0027B6FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "squall/squall-Prefix.pch";
+				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Headers;
+				INFOPLIST_FILE = "squall/squall-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mountainstorm.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1E8CE49215DC5D3B0027B6FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "squall/squall-Prefix.pch";
+				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Headers;
+				INFOPLIST_FILE = "squall/squall-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mountainstorm.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E8CE46C15DC5D3B0027B6FC /* Build configuration list for PBXProject "squall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E8CE48E15DC5D3B0027B6FC /* Debug */,
+				1E8CE48F15DC5D3B0027B6FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E8CE49015DC5D3B0027B6FC /* Build configuration list for PBXNativeTarget "squall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E8CE49115DC5D3B0027B6FC /* Debug */,
+				1E8CE49215DC5D3B0027B6FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1E8CE46915DC5D3B0027B6FC /* Project object */;
+}

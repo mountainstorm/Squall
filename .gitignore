@@ -1,0 +1,6 @@
+.DS_Store
+*.pyc
+*.pch
+squall/lldb.squall/venv/*
+squall/lldb.squall/dist/lldb.squall.plugin
+squall/lldb.squall/dist/lldb.squall.plugin/*
