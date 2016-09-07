@@ -69,21 +69,21 @@
                                 </menu>
                             </popUpButtonCell>
                         </popUpButton>
-                        <customView id="9Gl-Cp-Ggu">
-                            <rect key="frame" x="2" y="0.0" width="440" height="19"/>
+                        <customView id="T0U-Iy-rpv">
+                            <rect key="frame" x="11" y="0.0" width="425" height="19"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         </customView>
                     </subviews>
                 </customView>
                 <customView id="213">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="253"/>
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="254"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </customView>
             </subviews>
             <connections>
                 <outlet property="content" destination="213" id="ffg-vd-N85"/>
                 <outlet property="removeMenuItem" destination="A2g-nj-kpP" id="I7k-LO-9ca"/>
-                <outlet property="toolbar" destination="9Gl-Cp-Ggu" id="u11-jO-mR0"/>
+                <outlet property="toolbar" destination="T0U-Iy-rpv" id="LS3-5c-D2K"/>
             </connections>
         </customView>
     </objects>

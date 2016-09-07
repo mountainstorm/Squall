@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E0A10FC1D7CA69700BCCE89 /* lldb.squall.plugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E0A10FB1D7CA69700BCCE89 /* lldb.squall.plugin */; };
+		1E1AD2B81D7DD0810004ABDF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E1AD2B71D7DD0810004ABDF /* Images.xcassets */; };
+		1E2200201D8099D900B714CD /* TextPane.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E22FFE61D8069CC00B714CD /* TextPane.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E2200211D8099DC00B714CD /* ConsolePane.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2200111D808A7A00B714CD /* ConsolePane.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E22FFF31D806F0D00B714CD /* lldb.squall.plugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E0A10FB1D7CA69700BCCE89 /* lldb.squall.plugin */; };
 		1E3B4F7A1D763423003E9F2A /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F6D1D763423003E9F2A /* close.png */; };
 		1E3B4F7B1D763423003E9F2A /* hash-above.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F6E1D763423003E9F2A /* hash-above.png */; };
 		1E3B4F7C1D763423003E9F2A /* hash-below.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B4F6F1D763423003E9F2A /* hash-below.png */; };
@@ -19,36 +22,80 @@
 		1E3B4F821D763423003E9F2A /* MtConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B4F761D763423003E9F2A /* MtConfigViewController.m */; };
 		1E3B4F831D763423003E9F2A /* MtToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B4F791D763423003E9F2A /* MtToolbarView.m */; };
 		1E3B4F921D78C593003E9F2A /* MtConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B4F911D78C593003E9F2A /* MtConfigView.m */; };
+		1E76220E1D7F2F33002A1E6C /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E76220D1D7F2F33002A1E6C /* config.json */; };
+		1E7622141D7FFCF6002A1E6C /* plugin.py in Resources */ = {isa = PBXBuildFile; fileRef = 1E7622131D7FFCF6002A1E6C /* plugin.py */; };
 		1E8CE47715DC5D3B0027B6FC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8CE47615DC5D3B0027B6FC /* Cocoa.framework */; };
 		1E8CE48115DC5D3B0027B6FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E8CE47F15DC5D3B0027B6FC /* InfoPlist.strings */; };
 		1E8CE48315DC5D3B0027B6FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8CE48215DC5D3B0027B6FC /* main.m */; };
 		1E8CE48715DC5D3B0027B6FC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1E8CE48515DC5D3B0027B6FC /* Credits.rtf */; };
 		1E8CE48A15DC5D3B0027B6FC /* MtAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8CE48915DC5D3B0027B6FC /* MtAppDelegate.m */; };
 		1E8CE48D15DC5D3B0027B6FC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8CE48B15DC5D3B0027B6FC /* MainMenu.xib */; };
-		1E924FEC1D79ECC200DA4098 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E924FEB1D79ECC200DA4098 /* Python.framework */; };
-		1E924FEE1D79F7FB00DA4098 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E924FED1D79F7FB00DA4098 /* config.json */; };
 		1ECF47F415DFB533009FC1B8 /* NSView+HierarchicalDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECF47F315DFB533009FC1B8 /* NSView+HierarchicalDescription.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1E2200101D808A7A00B714CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E22000C1D808A7A00B714CD /* ConsolePane.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1E2200031D808A6400B714CD;
+			remoteInfo = ConsolePane;
+		};
+		1E2200221D809A2C00B714CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E22000C1D808A7A00B714CD /* ConsolePane.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E2200021D808A6400B714CD;
+			remoteInfo = ConsolePane;
+		};
+		1E2200241D809A2C00B714CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E22FFE11D8069CC00B714CD /* TextPane.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E76221D1D8069A7002A1E6C;
+			remoteInfo = TextPane;
+		};
+		1E22FFE51D8069CC00B714CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E22FFE11D8069CC00B714CD /* TextPane.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1E76221E1D8069A7002A1E6C;
+			remoteInfo = TextPane;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		1E22001F1D8099CB00B714CD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1E2200201D8099D900B714CD /* TextPane.bundle in CopyFiles */,
+				1E2200211D8099DC00B714CD /* ConsolePane.bundle in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1ECF483815E427EF009FC1B8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				1E0A10FC1D7CA69700BCCE89 /* lldb.squall.plugin in CopyFiles */,
+				1E22FFF31D806F0D00B714CD /* lldb.squall.plugin in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E0237821D7DF62500FBC5EE /* PaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaneController.h; sourceTree = "<group>"; };
 		1E0A10F51D7CA65D00BCCE89 /* lldb.squall.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = lldb.squall.py; path = lldb.squall/lldb.squall.py; sourceTree = "<group>"; };
 		1E0A10F61D7CA65D00BCCE89 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = lldb.squall/setup.py; sourceTree = "<group>"; };
-		1E0A10F71D7CA65D00BCCE89 /* command.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = command.xib; path = lldb.squall/command.xib; sourceTree = "<group>"; };
 		1E0A10FB1D7CA69700BCCE89 /* lldb.squall.plugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = lldb.squall.plugin; path = lldb.squall/dist/lldb.squall.plugin; sourceTree = "<group>"; };
-		1E0A10FD1D7CC3F500BCCE89 /* console.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = console.xib; path = lldb.squall/console.xib; sourceTree = "<group>"; };
+		1E1AD2B71D7DD0810004ABDF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1E22000C1D808A7A00B714CD /* ConsolePane.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ConsolePane.xcodeproj; path = ConsolePane/ConsolePane.xcodeproj; sourceTree = "<group>"; };
+		1E22FFE11D8069CC00B714CD /* TextPane.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TextPane.xcodeproj; path = TextPane/TextPane.xcodeproj; sourceTree = "<group>"; };
 		1E3B4F6D1D763423003E9F2A /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = MtConfigView/close.png; sourceTree = "<group>"; };
 		1E3B4F6E1D763423003E9F2A /* hash-above.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hash-above.png"; path = "MtConfigView/hash-above.png"; sourceTree = "<group>"; };
 		1E3B4F6F1D763423003E9F2A /* hash-below.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hash-below.png"; path = "MtConfigView/hash-below.png"; sourceTree = "<group>"; };
@@ -64,6 +111,9 @@
 		1E3B4F791D763423003E9F2A /* MtToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MtToolbarView.m; path = MtConfigView/MtToolbarView.m; sourceTree = "<group>"; };
 		1E3B4F901D78C593003E9F2A /* MtConfigView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MtConfigView.h; path = MtConfigView/MtConfigView.h; sourceTree = "<group>"; };
 		1E3B4F911D78C593003E9F2A /* MtConfigView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MtConfigView.m; path = MtConfigView/MtConfigView.m; sourceTree = "<group>"; };
+		1E76220D1D7F2F33002A1E6C /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		1E76220F1D7F5C78002A1E6C /* PluginDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PluginDelegate.h; sourceTree = "<group>"; };
+		1E7622131D7FFCF6002A1E6C /* plugin.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = plugin.py; sourceTree = "<group>"; };
 		1E8CE47215DC5D3B0027B6FC /* squall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = squall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E8CE47615DC5D3B0027B6FC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1E8CE47915DC5D3B0027B6FC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -77,8 +127,6 @@
 		1E8CE48815DC5D3B0027B6FC /* MtAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MtAppDelegate.h; sourceTree = "<group>"; };
 		1E8CE48915DC5D3B0027B6FC /* MtAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MtAppDelegate.m; sourceTree = "<group>"; };
 		1E8CE48C15DC5D3B0027B6FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		1E924FEB1D79ECC200DA4098 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = ../../../../../System/Library/Frameworks/Python.framework; sourceTree = "<group>"; };
-		1E924FED1D79F7FB00DA4098 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		1ECF47F215DFB533009FC1B8 /* NSView+HierarchicalDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+HierarchicalDescription.h"; sourceTree = "<group>"; };
 		1ECF47F315DFB533009FC1B8 /* NSView+HierarchicalDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+HierarchicalDescription.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,7 +136,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E924FEC1D79ECC200DA4098 /* Python.framework in Frameworks */,
 				1E8CE47715DC5D3B0027B6FC /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,10 +149,24 @@
 				1E0A10FB1D7CA69700BCCE89 /* lldb.squall.plugin */,
 				1E0A10F51D7CA65D00BCCE89 /* lldb.squall.py */,
 				1E0A10F61D7CA65D00BCCE89 /* setup.py */,
-				1E0A10F71D7CA65D00BCCE89 /* command.xib */,
-				1E0A10FD1D7CC3F500BCCE89 /* console.xib */,
 			);
 			name = lldb.squall;
+			sourceTree = "<group>";
+		};
+		1E22000D1D808A7A00B714CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E2200111D808A7A00B714CD /* ConsolePane.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1E22FFE21D8069CC00B714CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E22FFE61D8069CC00B714CD /* TextPane.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		1E3B4F6C1D76340A003E9F2A /* MtConfigView */ = {
@@ -150,7 +211,6 @@
 		1E8CE47515DC5D3B0027B6FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1E924FEB1D79ECC200DA4098 /* Python.framework */,
 				1E8CE47615DC5D3B0027B6FC /* Cocoa.framework */,
 				1E8CE47815DC5D3B0027B6FC /* Other Frameworks */,
 			);
@@ -175,9 +235,12 @@
 				1E8CE48815DC5D3B0027B6FC /* MtAppDelegate.h */,
 				1E8CE48915DC5D3B0027B6FC /* MtAppDelegate.m */,
 				1E8CE48B15DC5D3B0027B6FC /* MainMenu.xib */,
+				1E76220F1D7F5C78002A1E6C /* PluginDelegate.h */,
+				1E0237821D7DF62500FBC5EE /* PaneController.h */,
 				1E8CE47D15DC5D3B0027B6FC /* Supporting Files */,
 				1ECF47F215DFB533009FC1B8 /* NSView+HierarchicalDescription.h */,
 				1ECF47F315DFB533009FC1B8 /* NSView+HierarchicalDescription.m */,
+				1E1AD2B71D7DD0810004ABDF /* Images.xcassets */,
 			);
 			path = squall;
 			sourceTree = "<group>";
@@ -190,7 +253,8 @@
 				1E8CE48215DC5D3B0027B6FC /* main.m */,
 				1E8CE48415DC5D3B0027B6FC /* squall-Prefix.pch */,
 				1E8CE48515DC5D3B0027B6FC /* Credits.rtf */,
-				1E924FED1D79F7FB00DA4098 /* config.json */,
+				1E76220D1D7F2F33002A1E6C /* config.json */,
+				1E7622131D7FFCF6002A1E6C /* plugin.py */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -198,6 +262,8 @@
 		1ECF480115E425B8009FC1B8 /* PlugIns */ = {
 			isa = PBXGroup;
 			children = (
+				1E22000C1D808A7A00B714CD /* ConsolePane.xcodeproj */,
+				1E22FFE11D8069CC00B714CD /* TextPane.xcodeproj */,
 				1E0A10F41D7CA64F00BCCE89 /* lldb.squall */,
 			);
 			name = PlugIns;
@@ -210,15 +276,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E8CE49015DC5D3B0027B6FC /* Build configuration list for PBXNativeTarget "squall" */;
 			buildPhases = (
+				1E2200151D808BE200B714CD /* ShellScript */,
 				1E8CE46E15DC5D3B0027B6FC /* Sources */,
-				1E6D10441D7AE38300F51793 /* ShellScript */,
 				1E8CE46F15DC5D3B0027B6FC /* Frameworks */,
 				1E8CE47015DC5D3B0027B6FC /* Resources */,
 				1ECF483815E427EF009FC1B8 /* CopyFiles */,
+				1E22001F1D8099CB00B714CD /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1E2200231D809A2C00B714CD /* PBXTargetDependency */,
+				1E2200251D809A2C00B714CD /* PBXTargetDependency */,
 			);
 			name = squall;
 			productName = squall;
@@ -245,12 +314,39 @@
 			mainGroup = 1E8CE46715DC5D3B0027B6FC;
 			productRefGroup = 1E8CE47315DC5D3B0027B6FC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1E22000D1D808A7A00B714CD /* Products */;
+					ProjectRef = 1E22000C1D808A7A00B714CD /* ConsolePane.xcodeproj */;
+				},
+				{
+					ProductGroup = 1E22FFE21D8069CC00B714CD /* Products */;
+					ProjectRef = 1E22FFE11D8069CC00B714CD /* TextPane.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1E8CE47115DC5D3B0027B6FC /* squall */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1E2200111D808A7A00B714CD /* ConsolePane.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ConsolePane.bundle;
+			remoteRef = 1E2200101D808A7A00B714CD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1E22FFE61D8069CC00B714CD /* TextPane.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TextPane.bundle;
+			remoteRef = 1E22FFE51D8069CC00B714CD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1E8CE47015DC5D3B0027B6FC /* Resources */ = {
@@ -259,7 +355,7 @@
 			files = (
 				1E8CE48115DC5D3B0027B6FC /* InfoPlist.strings in Resources */,
 				1E3B4F7F1D763423003E9F2A /* hash.png in Resources */,
-				1E924FEE1D79F7FB00DA4098 /* config.json in Resources */,
+				1E1AD2B81D7DD0810004ABDF /* Images.xcassets in Resources */,
 				1E8CE48715DC5D3B0027B6FC /* Credits.rtf in Resources */,
 				1E3B4F811D763423003E9F2A /* MtConfigView.xib in Resources */,
 				1E3B4F7A1D763423003E9F2A /* close.png in Resources */,
@@ -269,25 +365,26 @@
 				1E3B4F801D763423003E9F2A /* Info.plist in Resources */,
 				1E3B4F7E1D763423003E9F2A /* hash-right.png in Resources */,
 				1E3B4F7B1D763423003E9F2A /* hash-above.png in Resources */,
+				1E76220E1D7F2F33002A1E6C /* config.json in Resources */,
+				1E7622141D7FFCF6002A1E6C /* plugin.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E6D10441D7AE38300F51793 /* ShellScript */ = {
+		1E2200151D808BE200B714CD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/squall/lldb.squall/",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"${SRCROOT}/squall/lldb.squall\"\nsource venv/bin/activate\npython setup.py py2app -A";
+			shellScript = "cd \"$SRCROOT/squall/lldb.squall/\"\nif [ -d \"venv\" ]; then\n    # we already have the virtual env\n    source venv/bin/activate\nelse\n    virtualenv venv\n    source venv/bin/activate\n    pip install moves\n    pip install six\n    pip install pygments\n    pip install hg+https://bitbucket.org/ronaldoussoren/py2app/\nfi\n# build\nif [ \"$CONFIGURATION\" -eq \"Release\" ]; then\n    python setup.py py2app\nelse\n    python setup.py py2app -A\nfi\ndeactivate\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -306,6 +403,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1E2200231D809A2C00B714CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ConsolePane;
+			targetProxy = 1E2200221D809A2C00B714CD /* PBXContainerItemProxy */;
+		};
+		1E2200251D809A2C00B714CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TextPane;
+			targetProxy = 1E2200241D809A2C00B714CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1E8CE47F15DC5D3B0027B6FC /* InfoPlist.strings */ = {
@@ -386,11 +496,14 @@
 		1E8CE49115DC5D3B0027B6FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/squall";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "squall/squall-Prefix.pch";
-				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Headers;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/";
 				INFOPLIST_FILE = "squall/squall-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Resources";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mountainstorm.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -401,11 +514,14 @@
 		1E8CE49215DC5D3B0027B6FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/squall";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "squall/squall-Prefix.pch";
-				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Headers;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/";
 				INFOPLIST_FILE = "squall/squall-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Resources";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mountainstorm.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

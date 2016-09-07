@@ -1,19 +1,28 @@
 //
-//  TextController.h
+//  TextPaneController.h
 //  squall
 //
 //  Created by cooper on 05/09/2016.
 //  Copyright © 2016 mountainstorm. All rights reserved.
 //
 
-#import "TextController.h"
+#import "TextPaneController.h"
 
-@implementation TextController
+@implementation TextPaneController
+
+@synthesize toolbar = _toolbar;
+@synthesize content = _content;
+
+@synthesize font = _font;
+
 
 - (id)initWithConfig:(NSDictionary*)config inView:(MtConfigView*)view
 {
-    self = [super initWithConfig:config inView:view];
-    [[NSBundle mainBundle] loadNibNamed:@"TextPane" owner:self topLevelObjects:nil];
+    self = [super init];
+    [[NSBundle bundleForClass:[TextPaneController class]] loadNibNamed:@"TextPane" owner:self topLevelObjects:nil];
+
+    // prevent selection
+    _toolbar.selectable = NO;
 
     // disable wordwrap
     NSSize massive = NSMakeSize(10000000, 10000000);
@@ -22,19 +31,16 @@
     [_results.textContainer setWidthTracksTextView:NO];
     [_results.textContainer setContainerSize:massive];
 
-    // add support for label rather than textfield
+    // load basic fonts
+    _font = [NSFont userFixedPitchFontOfSize:11.0];
     return self;
 }
 
-- (void)makeLabel
+- (void)makeEditable
 {
-    NSTextField* toolbar = (NSTextField*) self.toolbar;
-    toolbar.editable = NO;
-    toolbar.selectable = NO;
-    toolbar.font = [NSFont labelFontOfSize:self.font.pointSize];
-    NSRect frame = toolbar.frame;
-    frame.origin.y -= 3;
-    toolbar.frame = frame;
+    _toolbar.editable = YES;
+    _toolbar.selectable = YES;
+    _toolbar.font = _font;
 }
 
 - (IBAction)updated:(id)sender
@@ -42,14 +48,9 @@
     // should be overridden in subclass
 }
 
-//- (void)executeAsRefresh:(BOOL)refresh
-//{
-//    NSTextField* field = (NSTextField*) self.toolbar;
-//    [self updateResults:field.stringValue];
-//}
-
-- (void)updateResults:(NSAttributedString*)s
+- (void)updatePane:(NSAttributedString*)s
 {
+    // set the fixed with font and display
     NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithAttributedString:s];
     if (text) {
         [text addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, text.length)];

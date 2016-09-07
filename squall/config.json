@@ -1,3 +1,19 @@
 {
-    "plugin": "lldb.squall.plugin"
+    "plugin": "lldb.squall.plugin",
+    "commands": [
+        { "title": "--" },
+        { "title": "(lldb)", "controller": "Console" },
+        { "title": "--" },
+        { "title": "Registers", "controller": "Command", "cmd": "reg read" },
+        { "title": "Backtrace", "controller": "Command", "cmd": "bt" },
+        { "title": "Locals", "controller": "Command", "cmd": "frame variable", "lexer": "CLexer" },
+        { "title": "Frame", "controller": "Command", "cmd": "f" },
+        { "title": "Disassembly", "controller": "Command", "cmd": "disas -f" },
+        { "title": "Memory", "controller": "Command", "cmd": "m r -c 0x100 $rax", "editable": true },
+        { "title": "⟲", "controller": "Command", "editable": true, "lexer": true },
+    ],
+    "command.defaults": {
+        "style": "colorful",
+        "lexer": "PythonLexer"
+    }
 }

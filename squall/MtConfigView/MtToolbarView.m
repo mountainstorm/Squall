@@ -34,16 +34,10 @@
     // Drawing code here.
 	[super drawRect:dirtyRect];
 	
-	NSRectFill(NSInsetRect([self bounds], 5, 5));
-
-	[self->_borderColor set];
-	NSRectFill([self bounds]);
-	
 	NSRect rect = NSInsetRect([self bounds], 0, 1);
 	rect.size.height += 1.0; // TODO: make this automatic for whichever edge is against the parents
     [self->_backgroundColor set];
     NSRectFill(rect);
-	//[self->_fillGradient drawInRect:rect angle:90];
 }
 
 @end

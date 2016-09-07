@@ -50,7 +50,7 @@ typedef enum eMtConfigViewAdd {
 - (void)viewDidMoveToSuperview
 {
     [super viewDidMoveToSuperview];
-    [self setFrame:[[self superview] frame]];
+    [self setFrameSize:[self superview].frame.size];
 }
 
 
@@ -106,6 +106,7 @@ typedef enum eMtConfigViewAdd {
 {
     BOOL content = NO; // XXX: not technically right - you might not add views
     NSArray* subviews = _toolbar.subviews;
+
     for (id view in subviews) {
         [view removeFromSuperview];
         content = YES;
@@ -188,9 +189,9 @@ typedef enum eMtConfigViewAdd {
     if (index < 2) {
         [item setTitle:@"Layout"];
     } else {
+        retval = [_controller menu:menu updateItem:item atIndex:index-2 shouldCancel:shouldCancel];
         [item setTarget:self];
         [item setAction:@selector(changeContent:)];
-        retval = [_controller menu:menu updateItem:item atIndex:index-2 shouldCancel:shouldCancel];
     }
     return retval;
 }

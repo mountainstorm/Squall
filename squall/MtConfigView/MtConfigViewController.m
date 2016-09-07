@@ -16,9 +16,9 @@
 @synthesize view = _view;
 
 
-- (id)init
+- (id)initWithFrame:(NSRect)frame
 {
-    _view = [[NSView alloc] init];
+    _view = [[NSView alloc] initWithFrame:frame];
     [_view setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
     MtConfigView* view = [MtConfigView configView];
     view.controller = self;

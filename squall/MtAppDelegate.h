@@ -9,17 +9,20 @@
 #import <Cocoa/Cocoa.h>
 #import "MtConfigView/MtConfigViewController.h"
 #import "MtConfigViewDelegate.h"
-#import <Python.h>
+#import "PluginDelegate.h"
+#import "PaneController.h"
 
-@interface MtAppDelegate : NSObject <NSApplicationDelegate>
-{
-    PyObject* _scriptObject;
-}
+
+@interface MtAppDelegate : NSObject <NSApplicationDelegate, MtConfigViewDelegate>
 
 @property (assign) IBOutlet NSWindow* window;
 @property (assign) IBOutlet NSView* rootView;
 
-@property (retain) id<MtConfigViewDelegate> pythonDelegate;
 @property (retain) MtConfigViewController* configViewController;
+
+@property (retain) NSMapTable<MtConfigView*, id<PaneController>>* controllers;
+@property (retain) NSMutableDictionary* config;
+@property (retain) NSArray* commands;
+@property (retain) id<PluginDelegate> plugin;
 
 @end

@@ -5,12 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ConsoleController">
+        <customObject id="-2" userLabel="File's Owner" customClass="ConsolePaneController">
             <connections>
-                <outlet property="console" destination="1ZS-Vc-Knh" id="3ta-lp-kW9"/>
-                <outlet property="contentView" destination="c22-O7-iKe" id="Qye-WA-FPQ"/>
-                <outlet property="results" destination="gZX-D3-zZY" id="Bp2-DF-Cgk"/>
-                <outlet property="title" destination="o0X-E7-bso" id="FKV-6X-fXx"/>
+                <outlet property="console" destination="1ZS-Vc-Knh" id="zIH-I9-eQm"/>
+                <outlet property="content" destination="c22-O7-iKe" id="Abv-1k-RsA"/>
+                <outlet property="results" destination="gZX-D3-zZY" id="nV8-dz-zPo"/>
+                <outlet property="toolbar" destination="o0X-E7-bso" id="Cgs-VT-eVb"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -38,7 +38,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <action selector="updatedCommand:" target="-2" id="qJm-59-nT9"/>
+                        <action selector="updated:" target="-2" id="L8t-AT-DGH"/>
                     </connections>
                 </textField>
                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Vug-MF-Fzb">

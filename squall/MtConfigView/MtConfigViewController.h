@@ -13,7 +13,7 @@
 @interface MtConfigViewController : NSObject<MtConfigViewDelegateInternal>
 
 // public
-- (id)init;
+- (id)initWithFrame:(NSRect)frame;
 - (NSData*)archiveLayout;
 - (void)unarchiveLayout:(NSData*)layout;
 

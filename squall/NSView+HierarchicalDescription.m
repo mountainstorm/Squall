@@ -12,6 +12,10 @@
 
 - (NSString*)hierarchicalDescriptionOfView
 {
+//    NSView* top = self;
+//    while ([top superview] != nil) {
+//        top = [top superview];
+//    }
 	return [NSView hierarchicalDescriptionOfView:self level:0];
 }
 
