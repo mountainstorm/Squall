@@ -1,6 +1,9 @@
 .DS_Store
 *.pyc
 *.pch
+build/*
 squall/lldb.squall/venv/*
-squall/lldb.squall/dist/lldb.squall.plugin
-squall/lldb.squall/dist/lldb.squall.plugin/*
+squall/lldb.squall/build/*
+squall/lldb.squall/dist/*
+squall/TextPane/build/*
+squall/ConsolePane/build/*
