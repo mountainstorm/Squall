@@ -25,7 +25,8 @@ import lldb
 # cmd line specify program to attach
 # fix pane split storage
 # 'process interrupt' to break in
-# different configs/window layouts
+# different configs/window layouts/projects
+# file launch associated with project files
 # stdout/err window
 # stdin support
 # different core modules?
