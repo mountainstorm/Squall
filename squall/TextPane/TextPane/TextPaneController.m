@@ -14,11 +14,13 @@
 @synthesize content = _content;
 
 @synthesize font = _font;
+@synthesize config = _config;
 
 
 - (id)initWithConfig:(NSDictionary*)config inView:(MtConfigView*)view
 {
     self = [super init];
+    self.config = [NSMutableDictionary dictionaryWithDictionary:config];
     [[NSBundle bundleForClass:[TextPaneController class]] loadNibNamed:@"TextPane" owner:self topLevelObjects:nil];
 
     // prevent selection
@@ -36,6 +38,11 @@
     return self;
 }
 
+- (NSDictionary*)archiveConfig
+{
+    return self.config;
+}
+
 - (void)makeEditable
 {
     _toolbar.editable = YES;
@@ -51,11 +58,7 @@
 - (void)updatePane:(NSAttributedString*)s
 {
     // set the fixed with font and display
-    NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithAttributedString:s];
-    if (text) {
-        [text addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, text.length)];
-        [_results.textStorage setAttributedString:text];
-    }
+    [_results.textStorage setAttributedString:s];
 }
 
 @end

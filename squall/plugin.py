@@ -18,8 +18,15 @@ from pygments.formatters import RtfFormatter
 class Plugin(NSObject):
     def initWithConfig_(self, config):
         self = super(Plugin, self).init()
+        self.config = config
         self.controllers = []
         return self
+    
+    def launchWithArguments_(self, args):
+        pass
+    
+    def archiveConfig(self):
+        return self.config
 
     def addedController_(self, controller):
         controller.plugin = self
@@ -38,24 +45,33 @@ class Plugin(NSObject):
 
 
 class Formatter(object):
-    def __init__(self, config, sel):
-        self.sel = selector(sel, signature='v@:@')
+    def __init__(self, config, sel=None):
+        self.sel = None
+        if sel is not None:
+            self.sel = selector(sel, signature='v@:@')
         self.lexer = config.objectForKey_('lexer')
         if self.lexer is not None:
             if isinstance(self.lexer, pyobjc_unicode):
                 self.lexer = getattr(pygments.lexers, self.lexer)
+                if self.lexer is None:
+                    # perhaps its a private one
+                    parts = self.lexer.split('.')
+                    mod = __import__(parts[:-2])
+                    self.lexer = getattr(mod, parts[-1])
             elif self.lexer is False:
                 self.lexer = None # don't lex
         self.style = config.objectForKey_('style')
+        self.font = config.objectForKey_('font')
+        self.fontsize = config.objectForKey_('fontsize')
 
-    def update(self, s, fmt=None):
+    def update(self, s):
+        retval = None
         # find format
-        if fmt is None:
-            fmt = 'string'
-            if isinstance(s, NSAttributedString):
-                fmt = 'NSAttributedString'
-            elif isinstance(s, NSData):
-                fmt = 'rtf'
+        fmt = 'string'
+        if isinstance(s, NSAttributedString):
+            fmt = 'NSAttributedString'
+        elif isinstance(s, NSData):
+            fmt = 'rtf'
         # we only do highlighting if string is supplied
         if fmt == 'string':
             # format the output
@@ -64,19 +80,34 @@ class Formatter(object):
             except pygments.util.ClassNotFound:
                 lexer = None
             if lexer is not None:
-                rtf = highlight(s, lexer(), RtfFormatter(style=self.style)).encode('utf-8')
+                rtf = highlight(
+                    s,
+                    lexer(),
+                    RtfFormatter(
+                        style=self.style,
+                        fontface=self.font,
+                        fontsize=self.fontsize*2 # *2 as it wants half points
+                    )
+                ).encode('utf-8')
                 data = NSData.dataWithBytes_length_(rtf, len(rtf))
-                self.update(data)
+                retval = self.update(data)
             else:
                 # fallback - the string unformatted
-                self.sel(NSAttributedString.alloc().initWithString_(s))
+                retval = NSAttributedString.alloc().initWithString_(s)
+                if self.sel is not None:
+                    self.sel(retval)
         elif fmt == 'rtf':
             a = NSAttributedString.alloc().initWithRTF_documentAttributes_(s, None)
-            self.sel(a[0])
+            retval = a[0]
+            if self.sel is not None:
+                self.sel(a[0])
         elif fmt == 'NSAttributedString':
-            self.self(s)
+            retval = s
+            if self.sel is not None:
+                self.sel(s)
         else:
             raise ValueError('unsupported format; %s' % fmt)
+        return retval
 
 
 def load_plugins():
@@ -90,12 +121,10 @@ def load_plugins():
 
 
 def load_plugins_in_path(root):
-    added = False
+    sys.path.append(root)
     for fn in os.listdir(root):
+        _, ext = os.path.splitext(fn)
         path = os.path.join(root, fn)
-        if os.path.isfile(os.path.join(path, '__init__.py')):
-            if added is False:
-                added = True
-                sys.path.append(root)
+        if fn == '.py' or os.path.isfile(os.path.join(path, '__init__.py')):
             __import__(os.path.basename(path))
 

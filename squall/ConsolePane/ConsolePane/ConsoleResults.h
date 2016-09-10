@@ -9,5 +9,8 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ConsoleResults : NSView
+{
+    float _minWidth;
+}
 
 @end

@@ -20,5 +20,6 @@
 @property (assign) IBOutlet NSTextView* results;
 
 @property (retain) NSFont* font;
+@property (retain) NSMutableDictionary* config;
 
 @end

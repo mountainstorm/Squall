@@ -15,7 +15,9 @@
 
 - (IBAction)updated:(id)sender;
 
-- (void)updatePane:(NSAttributedString*)s;
+- (void)updatePaneWithPrompt:(NSString*)prompt cmd:(NSString*)cmd result:(NSAttributedString*)s;
+- (void)updatePaneWithState:(NSAttributedString*)s;
+- (NSString*)getLastCommand;
 
 @property (assign) IBOutlet NSTextField* toolbar;
 @property (assign) IBOutlet NSView* content;
@@ -24,5 +26,6 @@
 
 @property (retain) NSFont* font;
 @property (retain) NSFont* bold;
+@property (retain) NSMutableDictionary* config;
 
 @end

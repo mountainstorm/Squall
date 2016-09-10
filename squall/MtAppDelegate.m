@@ -26,7 +26,7 @@
 {
     // load the settings
     NSError* error = nil;
-     [self loadConfigWithError:&error];
+    [self loadConfigWithError:&error];
     if (_config == nil) {
         [self criticalError:@"Unable to load config" withError:error];
     }
@@ -69,16 +69,20 @@
     // load the window layout - triggers the creation of objects
     NSData* layout = [NSUserDefaults.standardUserDefaults objectForKey:@"windowLayout"];
     if (layout) {
-        //[_configViewController unarchiveLayout:layout];
+        [_configViewController unarchiveLayout:layout];
     }
+    [_plugin launchWithArguments:[[NSProcessInfo processInfo] arguments]];
 }
 
 - (void)windowWillClose:(NSNotification*)notification
 {
     // save the window layout
-//	[NSUserDefaults.standardUserDefaults setObject:[_configViewController archiveLayout]
-//											  forKey:@"windowLayout"];
+	[NSUserDefaults.standardUserDefaults setObject:[_configViewController archiveLayout]
+											  forKey:@"windowLayout"];
+    [NSUserDefaults.standardUserDefaults setObject:[_plugin archiveConfig]
+											  forKey:@"pluginConfig"];
 	[NSUserDefaults.standardUserDefaults synchronize];
+    [_plugin shutdown];
 }
 
 - (NSInteger)numberOfItemsInMenu:(NSMenu*)menu
@@ -102,7 +106,8 @@
 - (void)createItem:(NSMenuItem*)item inView:(MtConfigView*)view
 {
     // XXX: merge cmd and cmddefaults
-    NSMutableDictionary* cmd = [NSMutableDictionary dictionaryWithDictionary:_config[@"command.defaults"]];
+    NSMutableDictionary* cmd = [NSMutableDictionary dictionaryWithDictionary:_config[@"defaults"]];
+    [cmd addEntriesFromDictionary:_config[@"command.defaults"]];
     [cmd addEntriesFromDictionary:_commands[item.tag]];
     [self createCommand:cmd inView:view];
 }
@@ -135,6 +140,28 @@
     }
 }
 
+- (NSData*)archiveConfigOfView:(MtConfigView*)view
+{
+    NSMutableData* retval = [NSMutableData data];
+    NSKeyedArchiver* aCoder = [[NSKeyedArchiver alloc] initForWritingWithMutableData:retval];
+    
+    id<PaneController> controller = [_controllers objectForKey:view];
+    [aCoder encodeObject:[controller archiveConfig] forKey:@"controller"];
+
+    [aCoder finishEncoding];
+    return retval;
+}
+
+- (void)unarchiveConfig:(NSData*)data intoView:(MtConfigView*)view
+{
+    NSKeyedUnarchiver* aDecoder = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    NSDictionary* config = [aDecoder decodeObjectForKey:@"controller"];
+    if (config != nil) {
+        [self createCommand:config inView:view];
+    }
+    [aDecoder finishDecoding];
+}
+
 - (NSDictionary*)loadJson:(NSString*)path error:(NSError**)error
 {
     NSDictionary* retval = nil;
@@ -147,7 +174,8 @@
 
 - (void)loadConfigWithError:(NSError**)error
 {
-    _config = [NSMutableDictionary dictionaryWithDictionary:[self loadJson:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"json"] error:error]];
+    _config = [NSMutableDictionary dictionaryWithDictionary:[NSUserDefaults.standardUserDefaults objectForKey:@"pluginConfig"]];
+    [_config addEntriesFromDictionary:[self loadJson:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"json"] error:error]];
     if (_config != nil) {
         // now load any config in the local domain or user domain
         NSFileManager* fileManager = NSFileManager.defaultManager;
@@ -188,9 +216,10 @@
         NSArray* files = [fileManager contentsOfDirectoryAtPath:path error:nil];
         for (NSString* file in files) {
             if ([file.pathExtension isEqualToString:@"bundle"]) {
-                NSBundle* bundle = [NSBundle bundleWithPath:file];
+                NSString* s = [path stringByAppendingPathComponent:file];
+                NSBundle* bundle = [NSBundle bundleWithPath:s];
                 if (bundle == nil || [bundle load] == NO) {
-                    [self criticalError:@"Loading bundle" withString:file];
+                    [self criticalError:@"Loading bundle" withString:s];
                 }
             }
         }
@@ -208,8 +237,11 @@
     alert.informativeText = error;
     alert.messageText = title;
     alert.alertStyle = NSCriticalAlertStyle;
-    NSLog(@"Critical Error: %@", title);
-    [alert runModal];
+    NSLog(@"Critical Error: %@, %@", title, error);
+   if (!isatty(2)) {
+        // only show a dialog if we we're gui launched
+        [alert runModal];
+    }
     [NSApp terminate:nil];
 }
 

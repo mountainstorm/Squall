@@ -15,5 +15,9 @@
     "command.defaults": {
         "style": "colorful",
         "lexer": "PythonLexer"
+    },
+    "defaults": {
+        "font": "Menlo",
+        "fontsize": 11.0
     }
 }

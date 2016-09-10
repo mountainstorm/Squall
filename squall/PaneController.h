@@ -13,6 +13,7 @@
 @protocol PaneController
 
 - (id)initWithConfig:(NSDictionary*)config inView:(MtConfigView*)view;
+- (NSDictionary*)archiveConfig;
 
 @property (assign) IBOutlet NSView* toolbar;
 @property (assign) IBOutlet NSView* content;

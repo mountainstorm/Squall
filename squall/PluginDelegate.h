@@ -15,8 +15,11 @@
 @protocol PluginDelegate
 
 - (id)initWithConfig:(NSDictionary*)config;
-- (void)addedController:(id<PaneController>) controller;
-- (void)removingController:(id<PaneController>) controller;
+- (NSDictionary*)archiveConfig;
+- (void)addedController:(id<PaneController>)controller;
+- (void)removingController:(id<PaneController>)controller;
+- (void)launchWithArguments:(NSArray*)args;
+- (void)shutdown;
 
 @end
 
