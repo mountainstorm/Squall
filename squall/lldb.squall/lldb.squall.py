@@ -5,8 +5,6 @@ from Cocoa import NSBundle, NSTimer, NSRunLoop, NSDefaultRunLoopMode, NSApp
 from objc import lookUpClass, YES, NO, signature
 
 import os
-import select
-import fcntl
 import sys
 import traceback
 import cStringIO
@@ -25,16 +23,15 @@ import lldb
 
 # == Enhancements ==
 # cmd line specify program to attach
+# fix pane split storage
 # 'process interrupt' to break in
 # different configs/window layouts
 # stdout/err window
 # stdin support
 # different core modules?
 # menu items
-# default ot an empty console
-# draw anywhere 'console' view
-# https://github.com/filcab/SublimeLLDB/blob/master/plugin/lldb_wrappers.py
-#   checkout lldb.SBCommandInterpreter.eBroadcastBitQuitCommandReceived
+# default to an empty console
+# draw anywhere 'terminal' view
 
 
 class Command(lookUpClass('TextPaneController')):
@@ -63,6 +60,22 @@ class Command(lookUpClass('TextPaneController')):
         cmd = self.cmd if self.cmd is not None else self.toolbar().stringValue()
         result = self.plugin.command(cmd)
         self.formatter.update(result)
+
+
+class Output(lookUpClass('TextPaneController')):
+    def initWithConfig_inView_(self, config, view):
+        self = super(Output, self).initWithConfig_inView_(config, view)
+        self.formatter = Formatter(config, self.updatePane_)
+        self.toolbar().setStringValue_(config.objectForKey_('title'))
+        self.text = cStringIO.StringIO()
+        return self
+
+    def update(self, refresh=False):
+        pass
+
+    def append(self, s):
+        self.text.write(s)
+        self.formatter.update(self.text.getvalue())
 
 
 class Console(lookUpClass('ConsolePaneController')):
@@ -183,14 +196,6 @@ class LLDBPlugin(Plugin):
                         self.update_consoles('process %u detached' % (pid))
                     elif state == lldb.eStateRunning:
                         pass # say nothing
-#                    elif state == lldb.eStateUnloaded:
-#                        self.update_consoles('process %u unloaded, this shouldn\'t happen' % (pid))
-#                    elif state == lldb.eStateConnected:
-#                        self.update_consoles('process connected')
-#                    elif state == lldb.eStateAttaching:
-#                        self.update_consoles('process attaching')
-#                    elif state == lldb.eStateLaunching:
-#                        self.update_consoles('process launching')
                     else:
                         self.update_consoles('process state changed event: %s' % (lldb.SBDebugger.StateAsCString(state)))
             elif event.BroadcasterMatchesRef(self.interpreter.GetBroadcaster()):
@@ -219,7 +224,7 @@ class LLDBPlugin(Plugin):
                     data = process.GetSTDOUT(4096)
                 if len(out.getvalue()) > 0:
                     #sys.stdout.write(out.getvalue())
-                    self.update_consoles(out.getvalue(), inferior=True)
+                    self.update_stdout(out.getvalue())
                 out = cStringIO.StringIO()
                 data = process.GetSTDERR(4096)
                 while data is not None:
@@ -227,7 +232,7 @@ class LLDBPlugin(Plugin):
                     data = process.GetSTDERR(4096)
                 if len(out.getvalue()) > 0:
                     #sys.stdout.write(out.getvalue())
-                    self.update_consoles(out.getvalue(), inferior=True)
+                    self.update_stdout(out.getvalue())
         if found_events is True:
             self.refresh()
 
@@ -244,14 +249,18 @@ class LLDBPlugin(Plugin):
             self.update_consoles(retval)
         return retval
 
-    def update_consoles(self, result, inferior=False):
+    def update_consoles(self, result):
         for controller in self.controllers:
             if isinstance(controller, Console):
-                if inferior is False:
-                    # do usual formatting
-                    controller.updatePaneWithState_(controller.formatter.update(result))
-                else:
-                    controller.updatePaneWithStdout_(result)
+                # do usual formatting
+                controller.updatePaneWithState_(controller.formatter.update(result))
+
+    def update_stdout(self, result, inferior=False):
+        for pane in self.controllers:
+            if isinstance(pane, Console):
+                pane.updatePaneWithStdout_(result)
+            elif isinstance(pane, Output):
+                pane.append(result)
 
     def shutdown(self):
         self.event_timer.invalidate()

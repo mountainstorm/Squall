@@ -4,9 +4,10 @@
         { "title": "--" },
         { "title": "(lldb)", "controller": "Console" },
         { "title": "--" },
+        { "title": "Output", "controller": "Output", "lexer": "TextLexer" },
         { "title": "Registers", "controller": "Command", "cmd": "reg read" },
         { "title": "Backtrace", "controller": "Command", "cmd": "bt" },
-        { "title": "Locals", "controller": "Command", "cmd": "frame variable", "lexer": "CLexer" },
+        { "title": "Locals", "controller": "Command", "cmd": "frame variable" },
         { "title": "Frame", "controller": "Command", "cmd": "f" },
         { "title": "Disassembly", "controller": "Command", "cmd": "disas -f" },
         { "title": "Memory", "controller": "Command", "cmd": "m r -c 0x100 $rax", "editable": true },
@@ -14,7 +15,7 @@
     ],
     "command.defaults": {
         "style": "colorful",
-        "lexer": "PythonLexer"
+        "lexer": "CLexer"
     },
     "defaults": {
         "font": "Menlo",
