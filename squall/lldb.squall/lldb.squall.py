@@ -85,7 +85,7 @@ class Console(lookUpClass('ConsolePaneController')):
             if cmd is not None and len(cmd) > 0:
                 # now we need to be careful as run adn quit both cause the command
                 # interpreter to ask the user questions - which I can't see to redirect
-                matches = self.get_completions()
+                matches = self.get_completions(cmd)
                 if len(matches) == 1:
                     cmd = matches[0] # expand the the valid match
                 process = None
@@ -93,7 +93,6 @@ class Console(lookUpClass('ConsolePaneController')):
                 if target is not None:
                     process = target.GetProcess()
                 if cmd in manual and process is not None:
-                    print('process running', process.GetState(), process.is_running)
                     # we're running and cmd will cause an annoying prompt
                     # XXX: some logic - perhaps ask the user
                     self.plugin.command('kill')
@@ -162,8 +161,10 @@ class LLDBPlugin(Plugin):
             NSApp.terminate_(None)
             
     def event_handler(self):
+        found_events = False
         event = lldb.SBEvent()
         while self.listener.GetNextEvent(event):
+            found_events = True
             ev_type = event.GetType()
             if lldb.SBProcess.EventIsProcessEvent(event):
                 state = lldb.SBProcess.GetStateFromEvent(event)
@@ -217,7 +218,7 @@ class LLDBPlugin(Plugin):
                     out.write(data)
                     data = process.GetSTDOUT(4096)
                 if len(out.getvalue()) > 0:
-                    sys.stdout.write(out.getvalue())
+                    #sys.stdout.write(out.getvalue())
                     self.update_consoles(out.getvalue())
                 out = cStringIO.StringIO()
                 data = process.GetSTDERR(4096)
@@ -225,9 +226,10 @@ class LLDBPlugin(Plugin):
                     out.write(data)
                     data = process.GetSTDERR(4096)
                 if len(out.getvalue()) > 0:
-                    sys.stdout.write(out.getvalue())
+                    #sys.stdout.write(out.getvalue())
                     self.update_consoles(out.getvalue())
-        self.refresh()
+        if found_events is True:
+            self.refresh()
 
     def command(self, cmd, update=False, suppress=False):
         retval = None
