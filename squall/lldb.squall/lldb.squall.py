@@ -107,7 +107,7 @@ class Console(lookUpClass('ConsolePaneController')):
         matches = lldb.SBStringList()
         self.plugin.interpreter.HandleCompletion(cmd.encode('ascii'), len(cmd), len(cmd), -1, matches)
         for i in range(0, matches.GetSize()):
-            retval.append(matches.GetStringAtIndex(i)
+            retval.append(matches.GetStringAtIndex(i))
         return retval
 
 
