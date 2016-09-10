@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, print_function
 
-from Cocoa import NSBundle, NSTimer, NSRunLoop, NSDefaultRunLoopMode, NSApp, NSThread
+from Cocoa import NSBundle, NSTimer, NSRunLoop, NSDefaultRunLoopMode, NSApp
 from objc import lookUpClass, YES, NO, signature
 
 import os
@@ -219,7 +219,7 @@ class LLDBPlugin(Plugin):
                     data = process.GetSTDOUT(4096)
                 if len(out.getvalue()) > 0:
                     #sys.stdout.write(out.getvalue())
-                    self.update_consoles(out.getvalue())
+                    self.update_consoles(out.getvalue(), inferior=True)
                 out = cStringIO.StringIO()
                 data = process.GetSTDERR(4096)
                 while data is not None:
@@ -227,7 +227,7 @@ class LLDBPlugin(Plugin):
                     data = process.GetSTDERR(4096)
                 if len(out.getvalue()) > 0:
                     #sys.stdout.write(out.getvalue())
-                    self.update_consoles(out.getvalue())
+                    self.update_consoles(out.getvalue(), inferior=True)
         if found_events is True:
             self.refresh()
 
@@ -244,10 +244,14 @@ class LLDBPlugin(Plugin):
             self.update_consoles(retval)
         return retval
 
-    def update_consoles(self, result):
+    def update_consoles(self, result, inferior=False):
         for controller in self.controllers:
             if isinstance(controller, Console):
-                controller.updatePaneWithState_(controller.formatter.update(result))
+                if inferior is False:
+                    # do usual formatting
+                    controller.updatePaneWithState_(controller.formatter.update(result))
+                else:
+                    controller.updatePaneWithStdout_(result)
 
     def shutdown(self):
         self.event_timer.invalidate()

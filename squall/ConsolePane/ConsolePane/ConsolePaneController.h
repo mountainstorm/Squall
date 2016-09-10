@@ -17,6 +17,7 @@
 
 - (void)updatePaneWithPrompt:(NSString*)prompt cmd:(NSString*)cmd result:(NSAttributedString*)s;
 - (void)updatePaneWithState:(NSAttributedString*)s;
+- (void)updatePaneWithStdout:(NSString*)s;
 - (NSString*)getLastCommand;
 
 @property (assign) IBOutlet NSTextField* toolbar;

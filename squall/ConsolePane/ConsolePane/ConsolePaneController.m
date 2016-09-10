@@ -98,6 +98,13 @@
     [scrollview.documentView scrollPoint:NSMakePoint(0, 0)];
 }
 
+- (void)updatePaneWithStdout:(NSString*)s
+{
+    NSDictionary* bold = [NSDictionary dictionaryWithObject:_bold forKey:NSFontAttributeName];
+    NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithString:s attributes:bold];
+    [self updatePaneWithState:text];
+}
+
 - (NSString*)getLastCommand
 {
     NSString* retval = nil;
