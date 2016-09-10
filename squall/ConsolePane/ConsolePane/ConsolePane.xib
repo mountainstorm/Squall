@@ -32,7 +32,7 @@
                 <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="1ZS-Vc-Knh" customClass="ConsoleCommand">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="22"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="(lldb)" drawsBackground="YES" id="DIM-FW-Zoy">
+                    <textFieldCell key="cell" selectable="YES" editable="YES" state="on" focusRingType="none" placeholderString="(lldb)" drawsBackground="YES" id="DIM-FW-Zoy">
                         <font key="font" metaFont="fixedUser" size="11"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
