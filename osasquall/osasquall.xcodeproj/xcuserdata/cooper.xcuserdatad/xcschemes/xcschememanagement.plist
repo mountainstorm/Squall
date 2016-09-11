@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Squall.xcscheme</key>
+		<key>osasquall.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1E7161281D844926002FE714</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1E7161411D844926002FE714</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1E71614C1D844926002FE714</key>
+		<key>1E3882FD1D86097800DAF0B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

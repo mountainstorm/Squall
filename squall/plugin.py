@@ -22,11 +22,14 @@ class Plugin(NSObject):
         self.controllers = []
         return self
     
-    def launchWithArguments_(self, args):
+    def launch(self):
         pass
     
-    def archiveConfig(self):
-        return self.config
+    def shutdown(self):
+        pass
+    
+    def archiveSettings(self):
+        return None
 
     def addedController_(self, controller):
         controller.plugin = self

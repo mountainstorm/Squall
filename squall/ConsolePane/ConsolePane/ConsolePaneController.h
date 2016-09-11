@@ -6,7 +6,7 @@
 //  Copyright © 2016 cooper. All rights reserved.
 //
 
-#import <squall/PaneController.h>
+#import <Squall/PaneController.h>
 #import "ConsoleCommand.h"
 #import "ConsoleResults.h"
 

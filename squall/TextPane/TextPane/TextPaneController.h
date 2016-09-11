@@ -1,12 +1,12 @@
 //
 //  TextPaneController.h
-//  squall
+//  Squall
 //
 //  Created by cooper on 05/09/2016.
 //  Copyright © 2016 mountainstorm. All rights reserved.
 //
 
-#import <squall/PaneController.h>
+#import <Squall/PaneController.h>
 
 
 @interface TextPaneController : NSObject <PaneController>

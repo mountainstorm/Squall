@@ -14,8 +14,8 @@
 
 // public
 - (id)initWithFrame:(NSRect)frame;
-- (NSData*)archiveLayout;
-- (void)unarchiveLayout:(NSData*)layout;
+- (NSDictionary*)archiveLayout;
+- (void)unarchiveLayout:(NSDictionary*)layout;
 
 @property (retain) id<MtConfigViewDelegate> delegate;
 @property (retain) NSView* view;

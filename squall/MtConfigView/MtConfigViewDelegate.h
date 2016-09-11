@@ -20,7 +20,7 @@
 
 @protocol MtConfigViewDelegate <MtConfigViewDelegateInternal>
 
-- (NSData*)archiveConfigOfView:(MtConfigView*)view;
-- (void)unarchiveConfig:(NSData*)data intoView:(MtConfigView*)view;
+- (NSDictionary*)archiveConfigOfView:(MtConfigView*)view;
+- (void)unarchiveConfig:(NSDictionary*)settings intoView:(MtConfigView*)view;
 
 @end

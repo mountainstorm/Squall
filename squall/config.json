@@ -1,24 +1,23 @@
 {
     "plugin": "lldb.squall.plugin",
-    "commands": [
+    "panes": [
         { "title": "--" },
-        { "title": "(lldb)", "controller": "Console" },
+        { "title": "(lldb)", "class": "Console" },
         { "title": "--" },
-        { "title": "Output", "controller": "Output", "lexer": "TextLexer" },
-        { "title": "Registers", "controller": "Command", "cmd": "reg read" },
-        { "title": "Backtrace", "controller": "Command", "cmd": "bt" },
-        { "title": "Locals", "controller": "Command", "cmd": "frame variable" },
-        { "title": "Frame", "controller": "Command", "cmd": "f" },
-        { "title": "Disassembly", "controller": "Command", "cmd": "disas -f" },
-        { "title": "Memory", "controller": "Command", "cmd": "m r -c 0x100 $rax", "editable": true },
-        { "title": "⟲", "controller": "Command", "editable": true, "lexer": true },
+        { "title": "Output", "class": "Output", "lexer": "TextLexer" },
+        { "title": "Registers", "class": "Command", "cmd": "reg read" },
+        { "title": "Backtrace", "class": "Command", "cmd": "bt" },
+        { "title": "Locals", "class": "Command", "cmd": "frame variable" },
+        { "title": "Frame", "class": "Command", "cmd": "f" },
+        { "title": "Disassembly", "class": "Command", "cmd": "disas -f" },
+        { "title": "Memory", "class": "Command", "cmd": "m r -c 0x100 $rax", "editable": true },
+        { "title": "⟲", "class": "Command", "editable": true, "lexer": true },
     ],
-    "command.defaults": {
+    "global": {
         "style": "colorful",
-        "lexer": "CLexer"
-    },
-    "defaults": {
+        "lexer": "CLexer",
         "font": "Menlo",
         "fontsize": 11.0
-    }
+    },
+    "layout": { "title": "(lldb)" }
 }

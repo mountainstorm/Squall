@@ -1,6 +1,6 @@
 //
 //  TextPaneController.h
-//  squall
+//  Squall
 //
 //  Created by cooper on 05/09/2016.
 //  Copyright © 2016 mountainstorm. All rights reserved.
@@ -38,9 +38,9 @@
     return self;
 }
 
-- (NSDictionary*)archiveConfig
+- (NSDictionary*)archiveSettings
 {
-    return self.config;
+    return @{ @"title": self.config[@"title"] };
 }
 
 - (void)makeEditable

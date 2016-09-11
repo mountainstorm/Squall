@@ -39,9 +39,9 @@
     return self;
 }
 
-- (NSDictionary*)archiveConfig
+- (NSDictionary*)archiveSettings
 {
-    return self.config;
+    return @{ @"title": self.config[@"title"] };
 }
 
 - (IBAction)updated:(id)sender

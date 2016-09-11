@@ -10,15 +10,17 @@
 #define PluginDelegate_h
 
 #import <Foundation/Foundation.h>
-#import <squall/PaneController.h>
+#import <Squall/PaneController.h>
 
 @protocol PluginDelegate
 
 - (id)initWithConfig:(NSDictionary*)config;
-- (NSDictionary*)archiveConfig;
+- (NSDictionary*)archiveSettings;
+
 - (void)addedController:(id<PaneController>)controller;
 - (void)removingController:(id<PaneController>)controller;
-- (void)launchWithArguments:(NSArray*)args;
+
+- (void)launch;
 - (void)shutdown;
 
 @end

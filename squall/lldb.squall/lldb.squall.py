@@ -156,16 +156,16 @@ class LLDBPlugin(Plugin):
         self.launch_info = None
         return self
     
-    def launchWithArguments_(self, args):
+    def launch(self):
         # XXX: support pid attach
         # SourceInitFileInHomeDirectory
         # SourceInitFileInCurrentWorkingDirectory
         self.update_consoles(self.debugger.GetVersionString())
-        if args.count() > 1:
-            arg1 = args.objectAtIndex_(1).UTF8String()
-            if arg1[0] != '-':
-                self.command('file "%s"' % arg1, update=True)
-                self.command('break set --name main', update=True)
+#        if args.count() > 1:
+#            arg1 = args.objectAtIndex_(1).UTF8String()
+#            if arg1[0] != '-':
+#                self.command('file "%s"' % arg1, update=True)
+#                self.command('break set --name main', update=True)
 
     def _event_handler(self):
         try:

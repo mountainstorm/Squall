@@ -27,76 +27,74 @@
     return self;
 }
 
-- (NSData*)archiveLayout
+- (NSDictionary*)archiveLayout
 {
     // out root view can only have a single child
     return [self archiveLayoutForView:_view.subviews.firstObject];
 }
 
-- (void)unarchiveLayout:(NSData*)layout
+- (void)unarchiveLayout:(NSDictionary*)layout
 {
     [_view.subviews.firstObject removeFromSuperview];
     [self unarchiveLayout:layout intoView:_view];
-    
-//    NSView* top = _view;
-//    while ([top superview] != nil) {
-//        top = [top superview];
-//    }
-//    NSLog(@"%@", [top hierarchicalDescriptionOfView]);
 }
 
-- (NSData*)archiveLayoutForView:(NSView*)view
+- (NSDictionary*)archiveLayoutForView:(NSView*)view
 {
-    NSMutableData* retval = [NSMutableData data];
-    NSKeyedArchiver* aCoder = [[NSKeyedArchiver alloc] initForWritingWithMutableData:retval];
+    NSDictionary* retval = nil;
     
-    [aCoder encodeRect:[view frame]];
-    [aCoder encodeBool:[view isKindOfClass:[NSSplitView class]]
-                forKey:@"isSplitView"];
-    
+    //[aCoder encodeRect:[view frame]];
     if ([view isKindOfClass:[NSSplitView class]]) {
+        NSMutableDictionary* layout = [NSMutableDictionary dictionary];
         // archive a splitview
         NSSplitView* split = (NSSplitView*)view;
         NSView* first = split.subviews.firstObject;
         NSView* second = split.subviews.lastObject;
         
-        [aCoder encodeBool:[split isVertical] forKey:@"isVertical"];
-        [aCoder encodeDataObject:[self archiveLayoutForView:first]];
-        [aCoder encodeDataObject:[self archiveLayoutForView:second]];
+        [layout setObject:[self archiveLayoutForView:first] forKey:@"first"];
+        [layout setObject:[self archiveLayoutForView:second]forKey:@"second"];
+        
+        // annoyingly there is no method to get the divider position - so we have to calculate it
+        CGFloat ratio = 0.5;
+        if (split.vertical) {
+            [layout setObject:@"|" forKey:@"split"];
+            ratio = first.frame.size.width / (split.frame.size.width - split.dividerThickness);
+        } else {
+            [layout setObject:@"-" forKey:@"split"];
+            ratio = first.frame.size.height / (split.frame.size.height - split.dividerThickness);
+        }
+        [layout setObject:[NSNumber numberWithFloat:ratio] forKey:@"ratio"];
+        retval = layout;
         
     } else {
         // archive content of a pane
-        [aCoder encodeDataObject:[_delegate archiveConfigOfView:(MtConfigView*)view]];
+        retval = [_delegate archiveConfigOfView:(MtConfigView*)view];
     }
-    [aCoder finishEncoding];
     return retval;
 }
 
-- (NSRect)unarchiveLayout:(NSData*)layout intoView:(NSView*)parent
+- (void)unarchiveLayout:(NSDictionary*)layout intoView:(NSView*)parent
 {
-    NSKeyedUnarchiver* aDecoder = [[NSKeyedUnarchiver alloc] initForReadingWithData:layout];
-    
-    NSRect frame = [aDecoder decodeRect];
-    if ([aDecoder decodeBoolForKey:@"isSplitView"]) {
+    NSString* dir = [layout objectForKey:@"split"];
+    if (dir != nil) {
         // unarchive a splitview
         NSSplitView* split = [[NSSplitView alloc] initWithFrame:parent.frame];
         [split setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
         [split setDividerStyle:NSSplitViewDividerStyleThin];
         
-        [split setVertical:[aDecoder decodeBoolForKey:@"isVertical"]];
+        [split setVertical:[dir isEqualToString:@"|"]];
         // interesting quirk - when adding the split view resizes the children
         // after we have added them reset the sizes
-        NSRect f1 = [self unarchiveLayout:[aDecoder decodeDataObject] intoView:split];
-        NSRect f2 = [self unarchiveLayout:[aDecoder decodeDataObject] intoView:split];
-        if (split.vertical) {
-            f1.size.width = parent.frame.size.width;
-            f2.size.width = parent.frame.size.width;
+        [self unarchiveLayout:layout[@"first"]  intoView:split];
+        [self unarchiveLayout:layout[@"second"] intoView:split];
+        CGFloat loc = 0.5;
+        CGFloat ratio = [layout[@"ratio"] floatValue];
+        if ([dir isEqualToString:@"|"]) {
+            loc = (split.frame.size.width - split.dividerThickness) * ratio;
         } else {
-            f1.size.height = parent.frame.size.height;
-            f2.size.height = parent.frame.size.height;
+            loc = (split.frame.size.height - split.dividerThickness) * ratio;
         }
-        [split.subviews.firstObject setFrame:f1];
-        [split.subviews.lastObject setFrame:f2];
+        [split setPosition:loc ofDividerAtIndex:0];
         [parent addSubview:split];
         
     } else {
@@ -109,10 +107,8 @@
             // there is more than one of us
             [view.removeMenuItem setEnabled:YES];
         }
-        [_delegate unarchiveConfig:[aDecoder decodeDataObject] intoView:view];
+        [_delegate unarchiveConfig:layout intoView:view];
     }
-    [aDecoder finishDecoding];
-    return frame;
 }
 
 // NSMenuDelegate

@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <squall/MtConfigView/MtConfigView.h>
+#import <Squall/MtConfigView/MtConfigView.h>
 
 
 @protocol PaneController
 
 - (id)initWithConfig:(NSDictionary*)config inView:(MtConfigView*)view;
-- (NSDictionary*)archiveConfig;
+- (NSDictionary*)archiveSettings;
 
 @property (assign) IBOutlet NSView* toolbar;
 @property (assign) IBOutlet NSView* content;

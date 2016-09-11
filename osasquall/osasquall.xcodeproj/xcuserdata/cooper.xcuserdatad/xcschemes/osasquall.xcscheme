@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E7161281D844926002FE714"
-               BuildableName = "Squall.app"
-               BlueprintName = "Squall"
-               ReferencedContainer = "container:Squall.xcodeproj">
+               BlueprintIdentifier = "1E3882FD1D86097800DAF0B7"
+               BuildableName = "osasquall"
+               BlueprintName = "osasquall"
+               ReferencedContainer = "container:osasquall.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E7161411D844926002FE714"
-               BuildableName = "SquallTests.xctest"
-               BlueprintName = "SquallTests"
-               ReferencedContainer = "container:Squall.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E71614C1D844926002FE714"
-               BuildableName = "SquallUITests.xctest"
-               BlueprintName = "SquallUITests"
-               ReferencedContainer = "container:Squall.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1E7161281D844926002FE714"
-            BuildableName = "Squall.app"
-            BlueprintName = "Squall"
-            ReferencedContainer = "container:Squall.xcodeproj">
+            BlueprintIdentifier = "1E3882FD1D86097800DAF0B7"
+            BuildableName = "osasquall"
+            BlueprintName = "osasquall"
+            ReferencedContainer = "container:osasquall.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1E7161281D844926002FE714"
-            BuildableName = "Squall.app"
-            BlueprintName = "Squall"
-            ReferencedContainer = "container:Squall.xcodeproj">
+            BlueprintIdentifier = "1E3882FD1D86097800DAF0B7"
+            BuildableName = "osasquall"
+            BlueprintName = "osasquall"
+            ReferencedContainer = "container:osasquall.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1E7161281D844926002FE714"
-            BuildableName = "Squall.app"
-            BlueprintName = "Squall"
-            ReferencedContainer = "container:Squall.xcodeproj">
+            BlueprintIdentifier = "1E3882FD1D86097800DAF0B7"
+            BuildableName = "osasquall"
+            BlueprintName = "osasquall"
+            ReferencedContainer = "container:osasquall.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
