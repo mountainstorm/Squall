@@ -20,7 +20,8 @@ int main(int argc, const char * argv[]) {
         NSMutableString* json = [[NSMutableString alloc] init];
         NSFileHandle* input = [NSFileHandle fileHandleWithStandardInput];
         NSData* data = [input readDataToEndOfFile];
-        if (data == nil) {
+        if (data != nil) {
+            
             [json appendString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
         }
       
@@ -38,7 +39,6 @@ int main(int argc, const char * argv[]) {
         }
         [app activate];
         [app configJson:json project:project];
-        
     }
     return 0;
 }
