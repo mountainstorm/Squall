@@ -20,6 +20,14 @@ To support working with the Squall from the command line a tool called osasquall
 
 osasquall takes an optional project file parameter and reads JSON configuration from stdin.  Once the EOF is reached it instructs Squall to launch and open either the specified project or the default document - with the customizations applied.
 
+For example this will open the `test.squall` project file and setup the target as `cmake`
+
+```
+./osasquall test.squall  <<EOF
+> { "project": { "onlaunch": ["file /usr/local/bin/cmake"] } }
+> EOF
+```
+
 
 How it works
 ------------

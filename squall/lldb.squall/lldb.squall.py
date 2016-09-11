@@ -157,15 +157,14 @@ class LLDBPlugin(Plugin):
         return self
     
     def launch(self):
-        # XXX: support pid attach
         # SourceInitFileInHomeDirectory
         # SourceInitFileInCurrentWorkingDirectory
         self.update_consoles(self.debugger.GetVersionString())
-#        if args.count() > 1:
-#            arg1 = args.objectAtIndex_(1).UTF8String()
-#            if arg1[0] != '-':
-#                self.command('file "%s"' % arg1, update=True)
-#                self.command('break set --name main', update=True)
+        if 'project' in self.config and 'onlaunch' in self.config['project']:
+            for cmd in self.config['project']['onlaunch']:
+                result = self.command(cmd)
+                if result is not None:
+                    self.update_consoles(result, cmd=cmd)
 
     def _event_handler(self):
         try:
@@ -250,11 +249,15 @@ class LLDBPlugin(Plugin):
             self.update_consoles(retval)
         return retval
 
-    def update_consoles(self, result):
+    def update_consoles(self, result, cmd=None):
         for controller in self.controllers:
             if isinstance(controller, Console):
                 # do usual formatting
-                controller.updatePaneWithState_(controller.formatter.update(result))
+                if cmd is None:
+                    controller.updatePaneWithState_(controller.formatter.update(result))
+                else:
+                    controller.updatePaneWithPrompt_cmd_result_(self.debugger.GetPrompt(), cmd, controller.formatter.update(result))
+
 
     def update_stdout(self, result, inferior=False):
         for pane in self.controllers:
