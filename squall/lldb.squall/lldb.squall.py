@@ -87,7 +87,7 @@ class Console(lookUpClass('ConsolePaneController')):
 
     def updated_(self, sender):
         self.plugin.refresh(self)
-    
+
     def update(self, refresh=False):
         quit = ['quit', 'q']
         run = ['run', 'r']

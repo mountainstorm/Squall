@@ -1,6 +1,6 @@
 //
 //  MtAppDelegate.h
-//  squall
+//  Squall
 //
 //  Created by Cooper on 15/08/2012.
 //  Copyright (c) 2012 mountainstorm. All rights reserved.
@@ -11,6 +11,7 @@
 #import "MtConfigViewDelegate.h"
 #import "PluginDelegate.h"
 #import "PaneController.h"
+#import "Project.h"
 
 
 @interface MtAppDelegate : NSObject <NSApplicationDelegate, MtConfigViewDelegate>
@@ -24,5 +25,7 @@
 @property (retain) NSMutableDictionary* config;
 @property (retain) NSArray* commands;
 @property (retain) id<PluginDelegate> plugin;
+
+@property (retain) NSMutableArray<Project*>* projects;
 
 @end

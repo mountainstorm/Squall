@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1E8CE47115DC5D3B0027B6FC"
-               BuildableName = "squall.app"
-               BlueprintName = "squall"
-               ReferencedContainer = "container:squall.xcodeproj">
+               BuildableName = "Squall.app"
+               BlueprintName = "Squall"
+               ReferencedContainer = "container:Squall.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E8CE47115DC5D3B0027B6FC"
-            BuildableName = "squall.app"
-            BlueprintName = "squall"
-            ReferencedContainer = "container:squall.xcodeproj">
+            BuildableName = "Squall.app"
+            BlueprintName = "Squall"
+            ReferencedContainer = "container:Squall.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E8CE47115DC5D3B0027B6FC"
-            BuildableName = "squall.app"
-            BlueprintName = "squall"
-            ReferencedContainer = "container:squall.xcodeproj">
+            BuildableName = "Squall.app"
+            BlueprintName = "Squall"
+            ReferencedContainer = "container:Squall.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -81,9 +81,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1E8CE47115DC5D3B0027B6FC"
-            BuildableName = "squall.app"
-            BlueprintName = "squall"
-            ReferencedContainer = "container:squall.xcodeproj">
+            BuildableName = "Squall.app"
+            BlueprintName = "Squall"
+            ReferencedContainer = "container:Squall.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

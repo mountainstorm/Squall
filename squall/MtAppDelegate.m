@@ -1,6 +1,6 @@
 //
 //  MtAppDelegate.m
-//  squall
+//  Squall
 //
 //  Created by Cooper on 15/08/2012.
 //  Copyright (c) 2012 mountainstorm. All rights reserved.
@@ -21,14 +21,25 @@
 @synthesize commands = _commands;
 @synthesize plugin = _plugin;
 
+@synthesize projects = _projects;
+
+
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename
+{
+    return YES;
+}
+
 
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     // load the settings
     NSError* error = nil;
-    [self loadConfigWithError:&error];
     if (_config == nil) {
-        [self criticalError:@"Unable to load config" withError:error];
+        // we were'nt loaded via a project file
+        _config = [self loadConfigWithProject:nil error:&error];
+        if (_config == nil) {
+            [self criticalError:@"Unable to load config" withError:error];
+        }
     }
     
     _commands = _config[@"commands"];
@@ -172,29 +183,48 @@
     return retval;
 }
 
-- (void)loadConfigWithError:(NSError**)error
+- (NSMutableDictionary*)loadConfigWithProject:(NSString*)project error:(NSError**)error
 {
-    _config = [NSMutableDictionary dictionaryWithDictionary:[NSUserDefaults.standardUserDefaults objectForKey:@"pluginConfig"]];
-    [_config addEntriesFromDictionary:[self loadJson:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"json"] error:error]];
-    if (_config != nil) {
-        // now load any config in the local domain or user domain
+    NSMutableDictionary* retval = nil;
+    
+    // 1. load the builtin configuation
+    NSMutableDictionary* config = [NSMutableDictionary dictionaryWithDictionary:[self loadJson:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"json"] error:error]];
+    if (config != nil) {
         NSFileManager* fileManager = NSFileManager.defaultManager;
-        NSString* dn = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleExecutable"];
+        NSString* exe = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleExecutable"];
+        
+        // 2. and 3. overload with system, then user config
         NSArray* systemPaths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask | NSLocalDomainMask, YES);
-        for (NSString* searchPath in systemPaths) {
-            NSString* path = [searchPath stringByAppendingPathComponent:dn];
+        for (NSString* searchPath in [systemPaths reverseObjectEnumerator]) {
+            NSString* path = [searchPath stringByAppendingPathComponent:exe];
+            // make the full path
             path = [path stringByAppendingPathComponent:@"config.json"];
             if ([fileManager fileExistsAtPath:path]) {
                 NSDictionary* c = [self loadJson:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"json"] error:error];
                 if (c == nil) {
-                    _config = nil;
-                    return;
+                    config = nil;
+                    break;
                 }
                 // and overrride
-                [_config addEntriesFromDictionary:c];
+                [config addEntriesFromDictionary:c];
             }
         }
     }
+    
+    if (config != nil) {
+        // no errors so far - load project if present
+        if (project != nil) {
+            // 4. load project configuration
+            NSDictionary* c = [self loadJson:project error:error];
+            if (c != nil) {
+                [config addEntriesFromDictionary:c];
+                retval = config;
+            }
+        } else {
+            retval = config;
+        }
+    }
+    return retval;
 }
 
 - (void)loadPlugins

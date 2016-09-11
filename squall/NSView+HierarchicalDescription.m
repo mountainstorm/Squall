@@ -1,6 +1,6 @@
 //
 //  NSView+HierarchicalDescription.m
-//  squall
+//  Squall
 //
 //  Created by Richard Cooper on 17/08/2012.
 //  Copyright (c) 2012 mountainstorm. All rights reserved.
