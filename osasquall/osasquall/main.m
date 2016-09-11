@@ -12,7 +12,19 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        NSString* project = nil;
+        if (argc == 2) {
+            project = [NSString stringWithUTF8String:argv[1]];
+        }
         
+        NSMutableString* json = [[NSMutableString alloc] init];
+        NSFileHandle* input = [NSFileHandle fileHandleWithStandardInput];
+        NSData* data = [input readDataToEndOfFile];
+        if (data == nil) {
+            [json appendString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+        }
+      
+        // if we're not started - start us
         NSString* bid = @"uk.co.mountainstorm.Squall";
         SquallApplication* app = [SBApplication applicationWithBundleIdentifier:bid];
         if (!app.running) {
@@ -25,21 +37,6 @@ int main(int argc, const char * argv[]) {
             
         }
         [app activate];
-        
-        NSString* project = nil;
-        if (argc == 2) {
-            project = [NSString stringWithUTF8String:argv[1]];
-        }
-        
-        NSMutableString* json = [[NSMutableString alloc] init];
-        NSFileHandle* input = [NSFileHandle fileHandleWithStandardInput];
-        while (YES) {
-            NSData* data = [input availableData];
-            if(data == nil) {
-                break;
-            }
-            [json appendString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
-        }
         [app configJson:json project:project];
         
     }
