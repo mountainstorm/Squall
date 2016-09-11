@@ -8,6 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+
+// horrid global
+extern NSDictionary* g_customization;
+
+
 @interface ConfigProjectCommand : NSScriptCommand
 
 @end

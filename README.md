@@ -6,11 +6,19 @@ Squall is a simple OSX UI for lldb, which wraps the command line interface and p
 
 The aim is to provide an easily hackable framework on which more advanced tools/views can be easily built - without the inconvinience of terminal sessions, incorrect line heights etc.
 
-The main program provides a configurabe view layout system; MtConfigView; then loads all the plugins it can find and launches a python plugin to glue everything together.  This then uses pyObjc to extend various Objc classes and save writing loads of code.
+The main program provides a configurable view layout system; MtConfigView; then loads all the plugins it can find and launches a python plugin to glue everything together.  This then uses pyObjc to extend various Objc classes and save writing loads of code.
 
 It's easy to extend and has builtin support for coloring output using pygments.
 
 Download, build, enjoy.
+
+
+Launching
+---------
+
+To support working with the Squall from the command line a tool called osasquall is included.  This can be used to open a document in Squall (much like using open 'project.squall') but also apply launch specific customizations e.g. override the initial command.
+
+osasquall takes an optional project file parameter and reads JSON configuration from stdin.  Once the EOF is reached it instructs Squall to launch and open either the specified project or the default document - with the customizations applied.
 
 
 How it works
@@ -26,6 +34,7 @@ The files loaded, if present, are as follows:
 2. /Library/Application Support/Squall/config.json
 3. ~/Library/Application Support/Squall/config.json
 4. <project>.squall
+5. <launch specific customizations>
 
 This allows you to change a setting for all users, a specific user or a specific project.
 
@@ -60,5 +69,5 @@ Finally the plugin is sent am `archiveSettings` message and the output stored in
 
 ### Plugin ###
 
-Once the windows layout has been created the plugin is launched.
+Once the windows layout has been created the plugin is launched by calling `launch`.  When the window is close `shutdown` is called.
 

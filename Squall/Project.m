@@ -8,6 +8,7 @@
 
 #import "Project.h"
 #import "Error.h"
+#import "ConfigProjectCommand.h"
 
 @interface Project ()
 
@@ -52,14 +53,16 @@
 {
     self = [self init];
     if (self) {
-        NSDictionary* layout = [_config objectForKey:@"layout"];
-        if (layout) {
-            NSError* error = nil;
-             _plugin = [self loadPluginWithError:&error];
-            
-            if (error != nil) {
-                NSLog(@"%@", error.localizedDescription);
-            }
+        if (g_customization != nil) {
+            [_config addEntriesFromDictionary:g_customization];
+            g_customization = nil;
+        }
+    
+        NSError* error = nil;
+         _plugin = [self loadPluginWithError:&error];
+        
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
         }
     }
     return _plugin != nil ? self: nil;
@@ -88,6 +91,14 @@
         }
     } else {
         [super saveDocumentAs:sender];
+    }
+}
+
+- (void)close
+{
+    [super close];
+    if (_plugin != nil) {
+        [_plugin shutdown];
     }
 }
 
@@ -122,6 +133,11 @@
     NSDictionary* config = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:outError];
     if (config != nil) {
         [_config addEntriesFromDictionary:config];
+
+        if (g_customization != nil) {
+            [_config addEntriesFromDictionary:g_customization];
+            g_customization = nil;
+        }
 
         NSError* error = nil;
         _plugin = [self loadPluginWithError:&error];
