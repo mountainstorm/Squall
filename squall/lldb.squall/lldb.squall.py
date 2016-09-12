@@ -22,16 +22,10 @@ import lldb
 
 
 # == Enhancements ==
-# cmd line specify program to attach
-# fix pane split storage
 # 'process interrupt' to break in
-# different configs/window layouts/projects
-# file launch associated with project files
-# stdout/err window
 # stdin support
 # different core modules?
 # menu items
-# default to an empty console
 # draw anywhere 'terminal' view
 
 
@@ -160,8 +154,8 @@ class LLDBPlugin(Plugin):
         # SourceInitFileInHomeDirectory
         # SourceInitFileInCurrentWorkingDirectory
         self.update_consoles(self.debugger.GetVersionString())
-        if 'project' in self.config and 'onlaunch' in self.config['project']:
-            for cmd in self.config['project']['onlaunch']:
+        if 'onlaunch' in self.config:
+            for cmd in self.config['onlaunch']:
                 result = self.command(cmd)
                 if result is not None:
                     self.update_consoles(result, cmd=cmd)

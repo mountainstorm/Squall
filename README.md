@@ -13,8 +13,8 @@ It's easy to extend and has builtin support for coloring output using pygments.
 Download, build, enjoy.
 
 
-Launching
----------
+Commandline
+-----------
 
 To support working with the Squall from the command line a tool called osasquall is included.  This can be used to open a document in Squall (much like using open 'project.squall') but also apply launch specific customizations e.g. override the initial command.
 
@@ -24,7 +24,7 @@ For example this will open the `test.squall` project file and setup the target a
 
 ```
 ./osasquall test.squall  <<EOF
-> { "project": { "onlaunch": ["file /usr/local/bin/cmake"] } }
+> { "onlaunch": ["file /usr/local/bin/cmake"] }
 > EOF
 ```
 
