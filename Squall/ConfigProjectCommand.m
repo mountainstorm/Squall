@@ -40,12 +40,20 @@ NSDictionary* g_customization = nil;
                                       display:YES
                             completionHandler:^(NSDocument *document,
                                                 BOOL documentWasAlreadyOpen,
-                                                NSError *error) {}];
+                                                NSError *error) {
+                if (documentWasAlreadyOpen) {
+                    // already open - duplicate it - this will cause us to reset
+                    // the g_customization
+                    [document duplicateDocument:nil];
+                }
+            }];
+            
         } else {
             [dc openUntitledDocumentAndDisplay:YES error:nil];
         }
-        // you'd think you could set g_customization = nil here but no, the calls
-        // above can be async :(
+        // you'd think you could set g_customization = nil here but we can't as
+        // the opens all appen on the main thread - the same reason they cant
+        // access the current event directly as well
     }
     return nil;
 }

@@ -168,6 +168,10 @@
     }
 }
 
+- (void)updateChangeCount:(NSDocumentChangeType)changeType {
+    // overridden to do nothing. Thus preventing save dialog on quit
+}
+
 - (NSMutableDictionary*)loadConfigWithError:(NSError**)outError
 {
     NSMutableDictionary* retval = nil;
