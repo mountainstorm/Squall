@@ -35,14 +35,14 @@ NSDictionary* g_customization = nil;
         // each other - so we can live with it.
         g_customization = config;
         if (args.count >= 2) {
-            BOOL duplicate = NO;
-            NSNumber* d = [args valueForKey:@"duplicate"];
-            if (d != nil) {
-                duplicate = [d boolValue];
+            BOOL template = NO;
+            NSString* tmp = [args valueForKey:@"template"];
+            if (tmp != nil && [tmp isEqualToString:@"YES"]) {
+                template = YES;
             }
             NSString* project = [args valueForKey:@"project"];
             if (project != nil) {
-                if (duplicate == NO) {
+                if (template == NO) {
                     [dc openDocumentWithContentsOfURL:[NSURL fileURLWithPath:project]
                                               display:YES
                                     completionHandler:^(NSDocument *document,

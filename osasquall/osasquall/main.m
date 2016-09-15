@@ -12,13 +12,13 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        BOOL duplicate = NO;
+        BOOL template = NO;
         NSString* project = nil;
         if (argc >= 2) {
             int i = 1;
-            if (argc == 3 && strcmp(argv[1], "-d") == 0) {
+            if (argc == 3 && strcmp(argv[1], "-t") == 0) {
                 i += 1;
-                duplicate = YES;
+                template = YES;
             }
             project = [NSString stringWithUTF8String:argv[i]];
         }
@@ -44,9 +44,8 @@ int main(int argc, const char * argv[]) {
             
         }
         [app activate];
-        //[app configJson:json project:project duplicate:duplicate];
-        [app configJson:json  project:project];
-        NSLog(@"dup: %d, proj: %@", duplicate, project);
+        // dont know why, but only string params seem to work
+        [app configJson:json project:project template:template ? @"YES": @"NO"];
     }
     return 0;
 }

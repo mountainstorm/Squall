@@ -5,15 +5,15 @@
     <suite name="Squall Suite" code="SQLL" description="Squall Scripts">
         <command name="config" code="cfgstrng" description="Opens a project with a customized config">
             <cocoa class="ConfigProjectCommand"/>
-            <parameter name="json" code="json" description="Config to use to override">
+            <parameter name="json" code="JSON" description="Config to use to override">
                 <type type="text"/>
             </parameter>
-            <parameter name="project" code="proj" description="Project file path">
+            <parameter name="project" code="PROJ" description="Project file path">
                 <type type="text"/>
             </parameter>
-<!--            <parameter name="duplicate" code="dupl" description="Duplicate project or open it">
-                <type type="boolean"/>
-            </parameter>-->
+            <parameter name="template" code="TPLT" description="Use project as a template">
+                <type type="text"/>
+            </parameter>
         </command>
     </suite>
 </dictionary>

@@ -22,10 +22,12 @@ To support working with the Squall from the command line a tool called osasquall
 
 osasquall takes an optional project file parameter and reads JSON configuration from stdin.  Once the EOF is reached it instructs Squall to launch and open either the specified project or the default document - with the customizations applied.
 
-For example this will open the `test.squall` project file and setup the target as `cmake`
+If the documet specified is already open it will be brought to the front and any specified customizations ignored.  To allow the use of a project as a template the `-t` open can be supplied (before the project name); in which case the project will be cloned and customizations allied.
+
+For example this will open using the `test.squall` project as a template, and setup the target as `cmake`
 
 ```
-./osasquall test.squall  <<EOF
+./osasquall -t test.squall  <<EOF
 > { "onlaunch": ["file /usr/local/bin/cmake"] }
 > EOF
 ```
