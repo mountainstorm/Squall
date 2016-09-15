@@ -100,7 +100,7 @@ class Console(lookUpClass('ConsolePaneController')):
                 target = self.plugin.debugger.GetSelectedTarget()
                 if target is not None:
                     process = target.GetProcess()
-                if cmd in manual and process is not None and if process.is_running:
+                if cmd in manual and process is not None and process.is_running:
                     # we're running and cmd will cause an annoying prompt
                     # XXX: some logic - perhaps ask the user
                     self.plugin.command('kill')
