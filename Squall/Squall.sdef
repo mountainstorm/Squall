@@ -8,9 +8,12 @@
             <parameter name="json" code="json" description="Config to use to override">
                 <type type="text"/>
             </parameter>
-            <parameter name="project" code="proj" description="Json customization" optional="yes">
+            <parameter name="project" code="proj" description="Project file path">
                 <type type="text"/>
             </parameter>
+<!--            <parameter name="duplicate" code="dupl" description="Duplicate project or open it">
+                <type type="boolean"/>
+            </parameter>-->
         </command>
     </suite>
 </dictionary>

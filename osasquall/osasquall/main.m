@@ -12,9 +12,15 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        BOOL duplicate = NO;
         NSString* project = nil;
-        if (argc == 2) {
-            project = [NSString stringWithUTF8String:argv[1]];
+        if (argc >= 2) {
+            int i = 1;
+            if (argc == 3 && strcmp(argv[1], "-d") == 0) {
+                i += 1;
+                duplicate = YES;
+            }
+            project = [NSString stringWithUTF8String:argv[i]];
         }
         
         NSMutableString* json = [[NSMutableString alloc] init];
@@ -38,7 +44,9 @@ int main(int argc, const char * argv[]) {
             
         }
         [app activate];
-        [app configJson:json project:project];
+        //[app configJson:json project:project duplicate:duplicate];
+        [app configJson:json  project:project];
+        NSLog(@"dup: %d, proj: %@", duplicate, project);
     }
     return 0;
 }

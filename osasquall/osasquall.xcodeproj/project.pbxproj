@@ -121,12 +121,13 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/../Squall/Squall.sdef",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd $SRCROOT/osasquall/\nsdp -fh --basename Squall $SRCROOT/../Squall/Squall.sdef";
+			shellScript = "cd $SRCROOT/osasquall/\nsdp -fh --basename Squall ../../Squall/Squall.sdef\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -17,7 +17,7 @@ NSDictionary* g_customization = nil;
 - (id)performDefaultImplementation
 {
     NSDictionary* args = [self evaluatedArguments];
-    if (args.count < 1 || args.count > 2) {
+    if (args.count < 1 || args.count > 3) {
         [self setScriptErrorNumber:-50];
         [self setScriptErrorString:@"Parameter Error: A JSON parameter is expected for the verb 'config'"];
 
@@ -34,20 +34,30 @@ NSDictionary* g_customization = nil;
         // but we shouldn't be creating two documents within miliseconds of
         // each other - so we can live with it.
         g_customization = config;
-        if (args.count == 2) {
+        if (args.count >= 2) {
+            BOOL duplicate = NO;
+            NSNumber* d = [args valueForKey:@"duplicate"];
+            if (d != nil) {
+                duplicate = [d boolValue];
+            }
             NSString* project = [args valueForKey:@"project"];
-            [dc openDocumentWithContentsOfURL:[NSURL fileURLWithPath:project]
-                                      display:YES
-                            completionHandler:^(NSDocument *document,
-                                                BOOL documentWasAlreadyOpen,
-                                                NSError *error) {
-                if (documentWasAlreadyOpen) {
-                    // already open - duplicate it - this will cause us to reset
-                    // the g_customization
-                    [document duplicateDocument:nil];
+            if (project != nil) {
+                if (duplicate == NO) {
+                    [dc openDocumentWithContentsOfURL:[NSURL fileURLWithPath:project]
+                                              display:YES
+                                    completionHandler:^(NSDocument *document,
+                                                        BOOL documentWasAlreadyOpen,
+                                                        NSError *error) {
+                        // already open - so the customization was ignored
+                        if (documentWasAlreadyOpen) {
+                            g_customization = nil;
+                        }
+                    }];
+                } else {
+                    // duplicate the doc
+                    [dc duplicateDocumentWithContentsOfURL:[NSURL fileURLWithPath:project] copying:YES displayName:nil error:nil];
                 }
-            }];
-            
+            }
         } else {
             [dc openUntitledDocumentAndDisplay:YES error:nil];
         }
