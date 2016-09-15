@@ -12,6 +12,8 @@ It's easy to extend and has builtin support for coloring output using pygments.
 
 Download, build, enjoy.
 
+![Screenshot1](/screenshot.png)
+
 
 Commandline
 -----------
