@@ -14,7 +14,7 @@
 
 @protocol PluginDelegate
 
-- (id)initWithConfig:(NSDictionary*)config;
+- (id)initWithDocument:(__weak NSDocument*)docuemnt andConfig:(NSDictionary*)config;
 - (NSDictionary*)archiveSettings;
 
 - (void)addedController:(id<PaneController>)controller;

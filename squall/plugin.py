@@ -16,8 +16,9 @@ from pygments.formatters import RtfFormatter
 
 
 class Plugin(NSObject):
-    def initWithConfig_(self, config):
+    def initWithDocument_andConfig_(self, document, config):
         self = super(Plugin, self).init()
+        self.document = document
         self.config = config
         self.controllers = []
         return self
