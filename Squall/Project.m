@@ -348,7 +348,7 @@
             *outError = [NSError errorWithDomain:NSPOSIXErrorDomain code:0 userInfo:@{ NSLocalizedDescriptionKey : description }];
         } else {
             Class pluginClass = [pluginBundle principalClass];
-            retval = [[pluginClass alloc] initWithConfig:_config];
+            retval = [[pluginClass alloc] initWithDocument:self andConfig:_config];
             if (retval == nil) {
                 NSString* description = [NSString stringWithFormat:@"Unable to init plugin '%@'", fn];
                 *outError = [NSError errorWithDomain:NSPOSIXErrorDomain code:0 userInfo:@{ NSLocalizedDescriptionKey : description }];

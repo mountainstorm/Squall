@@ -524,12 +524,14 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/squall/lldb.squall/*",
 			);
 			outputPaths = (
+				"$(SRCROOT)/squall/lldb/dist/lldb.squall.plugin",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/squall/lldb.squall/\"\nif [ -d \"venv\" ]; then\n    # we already have the virtual env\n    source venv/bin/activate\nelse\n    virtualenv venv\n    source venv/bin/activate\n    pip install moves\n    pip install six\n    pip install pygments\n    pip install hg+https://bitbucket.org/ronaldoussoren/py2app/\nfi\n# build\nif [ \"$CONFIGURATION\" -eq \"Release\" ]; then\n    python setup.py py2app\nelse\n    python setup.py py2app -A\nfi\ndeactivate\n";
+			shellScript = "cd \"$SRCROOT/squall/lldb.squall/\"\nif [ -d \"venv\" ]; then\n    # we already have the virtual env\n    source venv/bin/activate\nelse\n    virtualenv venv\n    source venv/bin/activate\n    pip install moves\n    pip install six\n    pip install pygments\n    pip install https://bitbucket.org/ronaldoussoren/py2app/get/default.zip\nfi\n# build\nif [ \"$CONFIGURATION\" -eq \"Release\" ]; then\n    python setup.py py2app\nelse\n    python setup.py py2app -A\nfi\ndeactivate\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

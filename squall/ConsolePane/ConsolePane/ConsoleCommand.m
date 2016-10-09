@@ -87,4 +87,9 @@
     return retval;
 }
 
+- (void)viewDidMoveToWindow
+{
+    [self.window makeFirstResponder:self];
+}
+
 @end

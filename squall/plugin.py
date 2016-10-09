@@ -16,8 +16,9 @@ from pygments.formatters import RtfFormatter
 
 
 class Plugin(NSObject):
-    def initWithConfig_(self, config):
+    def initWithDocument_andConfig_(self, document, config):
         self = super(Plugin, self).init()
+        self.document = document
         self.config = config
         self.controllers = []
         return self
@@ -79,7 +80,7 @@ class Formatter(object):
         if fmt == 'string':
             # format the output
             try:
-                lexer = guess_lexer(s) if self.lexer is True else self.lexer
+                lexer = guess_lexer(s).__class__ if self.lexer is True else self.lexer
             except pygments.util.ClassNotFound:
                 lexer = None
             if lexer is not None:

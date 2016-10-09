@@ -8,3 +8,4 @@ squall/lldb.squall/dist/*
 squall/TextPane/build/*
 squall/ConsolePane/build/*
 osasquall/osasquall/Squall.h
+DerivedData/*

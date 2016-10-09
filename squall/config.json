@@ -2,7 +2,7 @@
     "plugin": "lldb.squall.plugin",
     "panes": [
         { "title": "--" },
-        { "title": "(lldb)", "class": "Console" },
+        { "title": "(lldb)", "class": "Console", "lexer": "TextLexer" },
         { "title": "--" },
         { "title": "Output", "class": "Output", "lexer": "TextLexer" },
         { "title": "Registers", "class": "Command", "cmd": "reg read" },

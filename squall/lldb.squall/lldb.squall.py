@@ -91,7 +91,7 @@ class Console(lookUpClass('ConsolePaneController')):
             if len(cmd.strip()) == 0:
                 cmd = self.getLastCommand()
             if cmd is not None and len(cmd) > 0:
-                # now we need to be careful as run adn quit both cause the command
+                # now we need to be careful as run and quit both cause the command
                 # interpreter to ask the user questions - which I can't see to redirect
                 matches = self.get_completions(cmd)
                 if len(matches) == 1:
@@ -124,8 +124,8 @@ class LLDBPlugin(Plugin):
         return len(bytes)
 
 
-    def initWithConfig_(self, config):
-        self = super(LLDBPlugin, self).initWithConfig_(config)
+    def initWithDocument_andConfig_(self, document, config):
+        self = super(LLDBPlugin, self).initWithDocument_andConfig_(document, config)
 
         # setup debugger
         self.debugger = lldb.SBDebugger.Create()
@@ -194,7 +194,7 @@ class LLDBPlugin(Plugin):
                         self.update_consoles('process state changed event: %s' % (lldb.SBDebugger.StateAsCString(state)))
             elif event.BroadcasterMatchesRef(self.interpreter.GetBroadcaster()):
                 if ev_type == lldb.SBCommandInterpreter.eBroadcastBitQuitCommandReceived:
-                    NSApp.terminate_(None)
+                    self.document.close()#NSApp.terminate_(None)
                 else:
                     print('broadcast', ev_type, lldb.SBEvent.GetCStringFromEvent(event))
             else:
@@ -264,4 +264,4 @@ class LLDBPlugin(Plugin):
         self.event_timer.invalidate()
         if self.debugger is not None:
             lldb.SBDebugger.Destroy(self.debugger)
-        lldb.SBDebugger.Terminate()
+        #lldb.SBDebugger.Terminate() # XXX: if we can this we can't create other instances
